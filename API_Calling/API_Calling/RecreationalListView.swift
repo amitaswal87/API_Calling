@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct RecreationalListView: View {
-    let users: [RecreationalUser]
+    let users: [RecreationalPlayersModel]
 
     var body: some View {
         ScrollView {

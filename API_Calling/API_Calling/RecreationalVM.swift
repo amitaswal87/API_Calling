@@ -11,7 +11,7 @@ import Combine
 
 class RecreationalVM : ObservableObject {
     
-    @Published var recreationalPlayers      : [RecreationalUser] = []
+    @Published var recreationalPlayers      : [RecreationalPlayersModel] = []
     @Published var isLoading: Bool          = false // the API call is in progress or not
     @Published var errorMessage: String?    = nil
 
@@ -46,7 +46,7 @@ class RecreationalVM : ObservableObject {
                     debugPrint("Failed with error: \(error)")
                     self?.errorMessage = error.localizedDescription
                 }
-            }, receiveValue: { [weak self] (recreationalPlayers: [RecreationalUser]) in
+            }, receiveValue: { [weak self] (recreationalPlayers: [RecreationalPlayersModel]) in
                 self?.recreationalPlayers = recreationalPlayers
             }).store(in: &cancellables)
     }

@@ -8,7 +8,7 @@
 import Foundation
 
 // MARK: - Recreational User Model
-struct RecreationalUser: Identifiable, Codable , Equatable {
+struct RecreationalPlayersModel: Identifiable, Codable , Equatable {
     let id: Int
     let name: String
     let username: String

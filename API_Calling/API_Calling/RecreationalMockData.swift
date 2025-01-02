@@ -9,13 +9,13 @@ import Foundation
 
 // Create a separate struct or class to handle mock data for testing
 struct RecreationalPlayersMockData {
-    static func getMockUsers() -> [RecreationalUser] {
+    static func getMockUsers() -> [RecreationalPlayersModel] {
         return [
-            RecreationalUser(id: 1, name: "Amit", username: "amitUser", email: "amit@amit.com"),
-            RecreationalUser(id: 2, name: "Nikhil", username: "nikhilUser", email: "nikhil@nikhil.com"),
-            RecreationalUser(id: 3, name: "Jim", username: "jimUser", email: "jim@jim.com"),
-            RecreationalUser(id: 4, name: "Kim", username: "kimUser", email: "kim@kim.com"),
-            RecreationalUser(id: 5, name: "Reda", username: "redaUser", email: "reda@reda.com")
+            RecreationalPlayersModel(id: 1, name: "Amit", username: "amitUser", email: "amit@amit.com"),
+            RecreationalPlayersModel(id: 2, name: "Nikhil", username: "nikhilUser", email: "nikhil@nikhil.com"),
+            RecreationalPlayersModel(id: 3, name: "Jim", username: "jimUser", email: "jim@jim.com"),
+            RecreationalPlayersModel(id: 4, name: "Kim", username: "kimUser", email: "kim@kim.com"),
+            RecreationalPlayersModel(id: 5, name: "Reda", username: "redaUser", email: "reda@reda.com")
         ]
     }
 }
