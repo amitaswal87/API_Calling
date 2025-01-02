@@ -14,43 +14,35 @@ enum HTTPMethod: String {
     case delete = "DELETE"
 }
 
-//enum APIEndpoints {
-//    case fetchRecreationalPlayers
-//    case fetchProPlayers
-//    case custom(String)
-//    
-//    var path: String {
-//        switch self {
-//        case .fetchRecreationalPlayers:
-//            return "/requestRecreationalPlayers"
-//        case .fetchProPlayers:
-//            return "/requestProUser"
-//        case .custom(let customEndPoint):
-//            return customEndPoint
-//        }
-//    }
-//}
+enum APIEndpoints {
+    case fetchRecreationalPlayers
+    case fetchAdvancedPlayers
+    case custom(String)
+    
+    var path: String {
+        switch self {
+        case .fetchRecreationalPlayers:
+            return "/requestRecreationalPlayers"
+        case .fetchAdvancedPlayers:
+            return "/requestProUser"
+        case .custom(let customEndPoint):
+            return customEndPoint
+        }
+    }
+}
 class APIRequestBuilder: APIRequestBuilderDelegate {
     private var urlComponents       : URLComponents
     private var httpMethod          : HTTPMethod            = HTTPMethod.get
-//    private var apiEndPoints        : APIEndpoints?
     private var headers             : [String: String]  = [:]
     private var body                : Data?
-    private var path                : String?
+    
+    
     init(baseURL: String) {
         self.urlComponents = URLComponents(string: baseURL)!
     }
-
-//    init(baseURL: String) throws {
-//            guard let components = URLComponents(string: baseURL) else {
-//                throw URLError(.badURL)
-//            }
-//            self.urlComponents = components
-//        }
     
     func setPath(_ path: String) -> Self {
-        self.path = path
-        urlComponents.path = path
+        self.urlComponents.path = path
         return self
     }
 
@@ -60,7 +52,7 @@ class APIRequestBuilder: APIRequestBuilderDelegate {
     }
 
     func addHeader(field: String, value: String) -> Self {
-        headers[field] = value
+        self.headers[field] = value
         return self
     }
 

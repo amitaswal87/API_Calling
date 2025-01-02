@@ -28,18 +28,21 @@ class RecreationalVMTests: XCTestCase {
         cancellables = nil
         super.tearDown()
     }
-
+    
+    // test innitial setup
     func testInitialState() {
         XCTAssertTrue(viewModel.recreationalPlayers.isEmpty)
         XCTAssertFalse(viewModel.isLoading)
         XCTAssertNil(viewModel.errorMessage)
     }
 
+    // test if data coming from server is correct
     func testFetchRecreationalPlayersSuccess() {
         // Mock response
         let mockUsers = RecreationalPlayersMockData.getMockUsers()
 
         let expectation = self.expectation(description: "Fetch users successfully")
+        _ = viewModel.requestBuilder.setPath(APIEndpoints.fetchRecreationalPlayers.path)
 
         viewModel.$recreationalPlayers
             .dropFirst()
@@ -54,10 +57,12 @@ class RecreationalVMTests: XCTestCase {
         waitForExpectations(timeout: 3.0)
     }
 
+    // test failure case
     func testFetchRecreationalPlayersFailure() {
 
         let expectation = self.expectation(description: "Fetch users failure")
         
+        _ = viewModel.requestBuilder.setPath(APIEndpoints.custom("/custom").path)
         viewModel.$errorMessage
             .dropFirst()
             .sink { errorMessage in
@@ -66,7 +71,7 @@ class RecreationalVMTests: XCTestCase {
             }
             .store(in: &cancellables)
 
-        viewModel.fetchRecreationalPlayers(endPoint: "/custom")
+        viewModel.fetchRecreationalPlayers()
 
         waitForExpectations(timeout: 3.0)
     }

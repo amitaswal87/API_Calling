@@ -17,7 +17,7 @@ class RecreationalVM : ObservableObject {
 
     private var cancellables                = Set<AnyCancellable>()
     private let apiService                  : APIServiceDelegate
-    private let requestBuilder              : APIRequestBuilderDelegate
+    let requestBuilder              : APIRequestBuilderDelegate
 
     var method : HTTPMethod = .get
     
@@ -27,13 +27,11 @@ class RecreationalVM : ObservableObject {
     }
     
     
-    func fetchRecreationalPlayers(endPoint : String = "/requestRecreationalPlayers"){
+    func fetchRecreationalPlayers(){
 
         self.isLoading = true
         
         guard let urlRequest = self.requestBuilder
-            .setPath(endPoint)
-            .setMethod(method)
             .build() else{
             return
         }

@@ -11,10 +11,12 @@ import Combine
 class APIService: APIServiceDelegate {
     private let urlSession: URLSession
 
+    // url session
     init(urlSession: URLSession) {
         self.urlSession = urlSession
     }
 
+    // fetch api response
     func fetch<T: Decodable>(request: URLRequest) -> AnyPublisher<T, Error> {
 
         return urlSession.dataTaskPublisher(for: request)

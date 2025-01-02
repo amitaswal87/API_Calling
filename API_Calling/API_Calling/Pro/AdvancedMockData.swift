@@ -11,9 +11,12 @@ import Foundation
 struct AdvancedPlayersMockData {
     static func getMockUsers() -> [AdvancedUsers] {
         return [
-            AdvancedUsers(id: 1, name: "Pro 1", username: "proUser1", phone: "123456789"),
-            AdvancedUsers(id: 2, name: "Pro 2", username: "proUser2", phone: "234567891"),
-            AdvancedUsers(id: 3, name: "Pro 3", username: "proUser3", phone: "345678912")
+            AdvancedUsers(id: 1, name: "Amit Pro",      username: "amitProUser",    phone: "123456789"),
+            AdvancedUsers(id: 2, name: "Nikhil Pro",    username: "nikhilProUser",  phone: "234567891"),
+            AdvancedUsers(id: 3, name: "Jim Pro",       username: "jimProUser",     phone: "345678912"),
+            AdvancedUsers(id: 4, name: "Kim Pro",       username: "kimProUser",     phone: "456789123"),
+            AdvancedUsers(id: 5, name: "Reda Pro",      username: "redaProUser",    phone: "567891234")
+            
         ]
     }
 }

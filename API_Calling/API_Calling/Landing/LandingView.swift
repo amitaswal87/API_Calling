@@ -23,18 +23,24 @@ struct LandingView: View {
                 // Buttons in the center
                 VStack(spacing: 20) {
                     
-                    // create recreational view / vm
-                    let recreationalVm = RecreationalVM(apiService: APIService(urlSession: URLSession.shared), requestBuilder: APIRequestBuilder(baseURL: TestBaseURLProvider().baseURL))
-                    
+                    // create apiBuilder object
+                    let apiBuilderRecreational = APIRequestBuilder(baseURL: TestBaseURLProvider().baseURL)
+                        .setPath(APIEndpoints.fetchRecreationalPlayers.path)
+                    // creat viewModel
+                    let recreationalVm = RecreationalVM(apiService: APIService(urlSession: URLSession.shared), requestBuilder: apiBuilderRecreational)
+                    // navigate to recreationUsers view
                     NavigationLink(destination: RecreationalView(viewModel:recreationalVm )) {
                         Text("Recreational Players")
                     }
                     .buttonStyle(PrimaryButtonStyle(backgroundColor: .black))
                     
                     
-                    // create advanced view / vm
-                    let advancedVm = AdvancedVM(apiService: APIService(urlSession: URLSession.shared) ,  urlRequestBuilder: APIRequestBuilder(baseURL: TestBaseURLProvider().baseURL))
-                    
+                    // create apiBuilder object
+                    let apiBuilderAdvanced = APIRequestBuilder(baseURL: TestBaseURLProvider().baseURL)
+                        .setPath(APIEndpoints.fetchAdvancedPlayers.path)
+                    // create viewModel
+                    let advancedVm = AdvancedVM(apiService: APIService(urlSession: URLSession.shared) ,  urlRequestBuilder: apiBuilderAdvanced)
+                    // navigate to AdvancedView
                     NavigationLink(destination: AdvancedView(viewModel: advancedVm)) {
                         Text("Advanced Players")
                     }

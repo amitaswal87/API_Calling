@@ -34,5 +34,5 @@ struct AdvancedView: View {
 }
 
 #Preview {
-    AdvancedView(viewModel: AdvancedVM(apiService:  APIService(urlSession: URLSession.shared)))
+    AdvancedView(viewModel: AdvancedVM(apiService: APIService(urlSession: URLSession.shared) ,  urlRequestBuilder: APIRequestBuilder(baseURL: TestBaseURLProvider().baseURL).setPath((APIEndpoints.fetchAdvancedPlayers.path))))
 }

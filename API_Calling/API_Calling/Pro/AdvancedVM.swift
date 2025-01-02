@@ -16,7 +16,7 @@ class AdvancedVM : ObservableObject {
 
     private var cancellables                = Set<AnyCancellable>()
     private let apiService                  : APIServiceDelegate
-    private let urlRequestBuilder                  : APIRequestBuilderDelegate
+    let urlRequestBuilder                  : APIRequestBuilderDelegate
     init(apiService: APIServiceDelegate , urlRequestBuilder : APIRequestBuilderDelegate) {
         self.apiService = apiService
         self.urlRequestBuilder = urlRequestBuilder
@@ -24,13 +24,11 @@ class AdvancedVM : ObservableObject {
     
     
 
-    func fetchAdvancedPlayers(endPoint : String = "/requestProUser"){
-
+    func fetchAdvancedPlayers(){
+        
         self.isLoading = true
         
         guard let urlRequest = self.urlRequestBuilder
-            .setPath(endPoint)
-            .setMethod(.get)
             .build() else{
             return
         }
@@ -47,6 +45,7 @@ class AdvancedVM : ObservableObject {
                 }
             }, receiveValue: { [weak self] (advancedPlayers: [AdvancedUsers]) in
                 self?.advancedPlayers = advancedPlayers
+                print(AdvancedPlayersMockData.getMockUsers())
             }).store(in: &cancellables)
     }
     

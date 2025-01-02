@@ -29,13 +29,14 @@ struct RecreationalView: View {
                    RecreationalListView(users: viewModel.recreationalPlayers)
                }
            }
-           .navigationTitle("Recreational View") // set the navigation title
+           .navigationTitle("Recreational View")
            .onAppear {
                viewModel.fetchRecreationalPlayers()
            }
        }
 }
 
-//#Preview {
-//    RecreationalView(viewModel: RecreationalVM(apiService:  APIService(urlSession: URLSession.shared)))
-//}
+#Preview {
+    RecreationalView(viewModel: RecreationalVM(apiService:  APIService(urlSession: URLSession.shared), requestBuilder: APIRequestBuilder(baseURL: TestBaseURLProvider().baseURL)
+        .setPath(APIEndpoints.fetchRecreationalPlayers.path)))
+}
