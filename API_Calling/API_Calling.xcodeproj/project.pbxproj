@@ -12,6 +12,9 @@
 		189E852F2D2C06650049EE4B /* TestBaseURLProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189E852E2D2C06650049EE4B /* TestBaseURLProvider.swift */; };
 		189E85312D2C066C0049EE4B /* ProdBaseURLProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189E85302D2C066C0049EE4B /* ProdBaseURLProvider.swift */; };
 		189E85332D2C08130049EE4B /* BaseURLProviderFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189E85322D2C08130049EE4B /* BaseURLProviderFactory.swift */; };
+		189E85342D2C08B70049EE4B /* BaseURLProviderFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189E85322D2C08130049EE4B /* BaseURLProviderFactory.swift */; };
+		189E85352D2C08BA0049EE4B /* TestBaseURLProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189E852E2D2C06650049EE4B /* TestBaseURLProvider.swift */; };
+		189E85362D2C08BC0049EE4B /* ProdBaseURLProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189E85302D2C066C0049EE4B /* ProdBaseURLProvider.swift */; };
 		18B049712D1D3D1B00E62C39 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18B049702D1D3D1B00E62C39 /* Assets.xcassets */; };
 		18B049742D1D3D1B00E62C39 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18B049732D1D3D1B00E62C39 /* Preview Assets.xcassets */; };
 		18B0497E2D1D3D1C00E62C39 /* API_CallingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B0497D2D1D3D1C00E62C39 /* API_CallingTests.swift */; };
@@ -497,6 +500,7 @@
 				18C76B892D2BD5C600E19CCD /* AdvancedMockData.swift in Sources */,
 				189E85292D2BFAA70049EE4B /* LandingViewModel.swift in Sources */,
 				18C76B702D2BD5AA00E19CCD /* RecreationalView.swift in Sources */,
+				189E85352D2C08BA0049EE4B /* TestBaseURLProvider.swift in Sources */,
 				18C76BE92D2BD75A00E19CCD /* API_CallingApp.swift in Sources */,
 				18C76A7A2D2BD07C00E19CCD /* LoadingStates.swift in Sources */,
 				18C76BDF2D2BD6E500E19CCD /* APIRequestBuilder.swift in Sources */,
@@ -506,6 +510,8 @@
 				18C76B682D2BD5A900E19CCD /* LandingView.swift in Sources */,
 				18C76BF22D2BDABB00E19CCD /* RecreationalPlayerModel.swift in Sources */,
 				18C76B782D2BD5AA00E19CCD /* RecreationalViewModel.swift in Sources */,
+				189E85342D2C08B70049EE4B /* BaseURLProviderFactory.swift in Sources */,
+				189E85362D2C08BC0049EE4B /* ProdBaseURLProvider.swift in Sources */,
 				18C76B6E2D2BD5AA00E19CCD /* RecreationalListView.swift in Sources */,
 				18C76B602D2BD5A900E19CCD /* AdvancedUsersListView.swift in Sources */,
 				18C76BE12D2BD6E500E19CCD /* APIService.swift in Sources */,
