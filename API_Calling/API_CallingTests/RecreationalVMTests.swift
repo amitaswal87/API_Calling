@@ -11,13 +11,13 @@ import XCTest
 import Combine
 
 class RecreationalVMTests: XCTestCase {
-    private var viewModel: RecreationalVM!
+    private var viewModel: RecreationalViewModel!
     private var mockAPIService: APIService!
     private var cancellables: Set<AnyCancellable>!
     override func setUp() {
         super.setUp()
         mockAPIService = APIService(urlSession: URLSession.shared)
-        viewModel = RecreationalVM(apiService: mockAPIService, requestBuilder: APIRequestBuilder(baseURL: TestBaseURLProvider().baseURL))
+        viewModel = RecreationalViewModel(apiService: mockAPIService, requestBuilder: APIRequestBuilder(baseURL: TestBaseURLProvider().baseURL))
         cancellables = []
     }
     

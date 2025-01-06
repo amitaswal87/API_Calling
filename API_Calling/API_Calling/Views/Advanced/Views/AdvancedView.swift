@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct AdvancedView: View {
-    @StateObject private var advancedViewModel : AdvancedVM
+    @StateObject private var advancedViewModel : AdvancedViewModel
 
-    init(advancedViewModel: AdvancedVM) {
+    init(advancedViewModel: AdvancedViewModel) {
         _advancedViewModel = StateObject(wrappedValue: advancedViewModel)
     }
     var body: some View {
@@ -37,5 +37,5 @@ struct AdvancedView: View {
 }
 
 #Preview {
-    AdvancedView(advancedViewModel: AdvancedVM(apiService: APIService(urlSession: URLSession.shared) ,  urlRequestBuilder: APIRequestBuilder(baseURL: TestBaseURLProvider().baseURL).setPath((APIEndpoints.fetchAdvancedPlayers.path))))
+    AdvancedView(advancedViewModel: AdvancedViewModel(apiService: APIService(urlSession: URLSession.shared) ,  urlRequestBuilder: APIRequestBuilder(baseURL: TestBaseURLProvider().baseURL).setPath((APIEndpoints.fetchAdvancedPlayers.path))))
 }

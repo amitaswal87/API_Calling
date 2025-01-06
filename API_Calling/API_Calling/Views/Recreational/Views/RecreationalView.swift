@@ -10,9 +10,9 @@ import SwiftUI
 
 struct RecreationalView: View {
 
-    @StateObject private var viewModel : RecreationalVM
+    @StateObject private var viewModel : RecreationalViewModel
     
-    init(viewModel: RecreationalVM) {
+    init(viewModel: RecreationalViewModel) {
         _viewModel = StateObject(wrappedValue: viewModel)
     }
     
@@ -41,6 +41,6 @@ struct RecreationalView: View {
 }
 
 #Preview {
-    RecreationalView(viewModel: RecreationalVM(apiService:  APIService(urlSession: URLSession.shared), requestBuilder: APIRequestBuilder(baseURL: TestBaseURLProvider().baseURL)
+    RecreationalView(viewModel: RecreationalViewModel(apiService:  APIService(urlSession: URLSession.shared), requestBuilder: APIRequestBuilder(baseURL: TestBaseURLProvider().baseURL)
         .setPath(APIEndpoints.fetchRecreationalPlayers.path)))
 }

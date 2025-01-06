@@ -11,14 +11,14 @@ import XCTest
 import Combine
 
 class AdvancedVMTests: XCTestCase {
-    private var viewModel: AdvancedVM!
+    private var viewModel: AdvancedViewModel!
     private var apiService: APIService!
     private var cancellables: Set<AnyCancellable>!
     
     override func setUp() {
         super.setUp()
         apiService = APIService(urlSession: URLSession.shared)
-        viewModel = AdvancedVM(apiService: APIService(urlSession: URLSession.shared) ,  urlRequestBuilder: APIRequestBuilder(baseURL: TestBaseURLProvider().baseURL))
+        viewModel = AdvancedViewModel(apiService: APIService(urlSession: URLSession.shared) ,  urlRequestBuilder: APIRequestBuilder(baseURL: TestBaseURLProvider().baseURL))
         cancellables = []
     }
     

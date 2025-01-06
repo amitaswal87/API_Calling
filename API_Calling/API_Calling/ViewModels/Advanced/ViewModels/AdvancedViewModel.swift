@@ -1,5 +1,5 @@
 //
-//  RecreationalVM.swift
+//  AdvancedViewModel.swift
 //  API_Calling
 //
 //  Created by apple  on 26/12/24.
@@ -8,34 +8,25 @@
 import Foundation
 import Combine
 
-enum LoadingState : Equatable {
-    case loading
-    case error(String)
-    case loaded
-    case none
-}
-
-class RecreationalVM : ObservableObject {
+class AdvancedViewModel : ObservableObject {
     @Published var state: LoadingState      = .none
-    @Published var recreationalPlayers      : [RecreationalPlayersModel] = []
+    @Published var advancedPlayers          : [AdvancedPlayersModel] = []
 
     private var cancellables                = Set<AnyCancellable>()
     private let apiService                  : APIServiceDelegate
-    let requestBuilder                      : APIRequestBuilderDelegate
-
-    var method : HTTPMethod = .get
-    
-    init(apiService: APIServiceDelegate , requestBuilder : APIRequestBuilderDelegate) {
+    let urlRequestBuilder                  : APIRequestBuilderDelegate
+    init(apiService: APIServiceDelegate , urlRequestBuilder : APIRequestBuilderDelegate) {
         self.apiService = apiService
-        self.requestBuilder = requestBuilder
+        self.urlRequestBuilder = urlRequestBuilder
     }
     
     
-    func fetchRecreationalPlayers(){
 
+    func fetchAdvancedPlayers(){
+        
         self.state = .loading
         
-        guard let urlRequest = self.requestBuilder
+        guard let urlRequest = self.urlRequestBuilder
             .build() else{
             return
         }
@@ -50,8 +41,8 @@ class RecreationalVM : ObservableObject {
                     debugPrint("Failed with error: \(error)")
                     self?.state = .error(error.localizedDescription)
                 }
-            }, receiveValue: { [weak self] (recreationalPlayers: [RecreationalPlayersModel]) in
-                self?.recreationalPlayers = recreationalPlayers
+            }, receiveValue: { [weak self] (advancedPlayers: [AdvancedPlayersModel]) in
+                self?.advancedPlayers = advancedPlayers
             }).store(in: &cancellables)
     }
     

@@ -1,5 +1,5 @@
 //
-//  AdvancedVM.swift
+//  RecreationalViewModel.swift
 //  API_Calling
 //
 //  Created by apple  on 26/12/24.
@@ -8,25 +8,27 @@
 import Foundation
 import Combine
 
-class AdvancedVM : ObservableObject {
+class RecreationalViewModel : ObservableObject {
     @Published var state: LoadingState      = .none
-    @Published var advancedPlayers          : [AdvancedPlayersModel] = []
+    @Published var recreationalPlayers      : [RecreationalPlayersModel] = []
 
     private var cancellables                = Set<AnyCancellable>()
     private let apiService                  : APIServiceDelegate
-    let urlRequestBuilder                  : APIRequestBuilderDelegate
-    init(apiService: APIServiceDelegate , urlRequestBuilder : APIRequestBuilderDelegate) {
+    let requestBuilder                      : APIRequestBuilderDelegate
+
+    var method : HTTPMethod = .get
+    
+    init(apiService: APIServiceDelegate , requestBuilder : APIRequestBuilderDelegate) {
         self.apiService = apiService
-        self.urlRequestBuilder = urlRequestBuilder
+        self.requestBuilder = requestBuilder
     }
     
     
+    func fetchRecreationalPlayers(){
 
-    func fetchAdvancedPlayers(){
-        
         self.state = .loading
         
-        guard let urlRequest = self.urlRequestBuilder
+        guard let urlRequest = self.requestBuilder
             .build() else{
             return
         }
@@ -41,8 +43,8 @@ class AdvancedVM : ObservableObject {
                     debugPrint("Failed with error: \(error)")
                     self?.state = .error(error.localizedDescription)
                 }
-            }, receiveValue: { [weak self] (advancedPlayers: [AdvancedPlayersModel]) in
-                self?.advancedPlayers = advancedPlayers
+            }, receiveValue: { [weak self] (recreationalPlayers: [RecreationalPlayersModel]) in
+                self?.recreationalPlayers = recreationalPlayers
             }).store(in: &cancellables)
     }
     

@@ -28,9 +28,9 @@ struct LandingView: View {
                     let apiBuilderRecreational = APIRequestBuilder(baseURL: TestBaseURLProvider().baseURL)
                         .setPath(APIEndpoints.fetchRecreationalPlayers.path)
                     // creat viewModel
-                    let recreationalVm = RecreationalVM(apiService: APIService(urlSession: URLSession.shared), requestBuilder: apiBuilderRecreational)
+                    let recreationalViewModel = RecreationalViewModel(apiService: APIService(urlSession: URLSession.shared), requestBuilder: apiBuilderRecreational)
                     // navigate to recreationUsers view
-                    NavigationLink(destination: RecreationalView(viewModel:recreationalVm )) {
+                    NavigationLink(destination: RecreationalView(viewModel:recreationalViewModel )) {
                         Text("Recreational Players")
                     }
                     .buttonStyle(PrimaryButtonStyle(backgroundColor: .black))
@@ -40,7 +40,7 @@ struct LandingView: View {
                     let apiBuilderAdvanced = APIRequestBuilder(baseURL: TestBaseURLProvider().baseURL)
                         .setPath(APIEndpoints.fetchAdvancedPlayers.path)
                     // create viewModel
-                    let advancedViewModel = AdvancedVM(apiService: APIService(urlSession: URLSession.shared) ,  urlRequestBuilder: apiBuilderAdvanced)
+                    let advancedViewModel = AdvancedViewModel(apiService: APIService(urlSession: URLSession.shared) ,  urlRequestBuilder: apiBuilderAdvanced)
                     // navigate to AdvancedView
                     NavigationLink(destination: AdvancedView(advancedViewModel: advancedViewModel)) {
                         Text("Advanced Players")
