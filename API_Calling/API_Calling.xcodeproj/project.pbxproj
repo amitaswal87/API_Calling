@@ -18,10 +18,6 @@
 		18C76A772D2BD07100E19CCD /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C76A6F2D2BD07100E19CCD /* Utils.swift */; };
 		18C76A792D2BD07C00E19CCD /* LoadingStates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C76A782D2BD07C00E19CCD /* LoadingStates.swift */; };
 		18C76A7A2D2BD07C00E19CCD /* LoadingStates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C76A782D2BD07C00E19CCD /* LoadingStates.swift */; };
-		18C76B572D2BD5A900E19CCD /* AdvancedPlayersModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C76B312D2BD5A900E19CCD /* AdvancedPlayersModel.swift */; };
-		18C76B582D2BD5A900E19CCD /* AdvancedPlayersModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C76B312D2BD5A900E19CCD /* AdvancedPlayersModel.swift */; };
-		18C76B5D2D2BD5A900E19CCD /* RecreationalPlayersModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C76B382D2BD5A900E19CCD /* RecreationalPlayersModel.swift */; };
-		18C76B5E2D2BD5A900E19CCD /* RecreationalPlayersModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C76B382D2BD5A900E19CCD /* RecreationalPlayersModel.swift */; };
 		18C76B5F2D2BD5A900E19CCD /* AdvancedUsersListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C76B3C2D2BD5A900E19CCD /* AdvancedUsersListView.swift */; };
 		18C76B602D2BD5A900E19CCD /* AdvancedUsersListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C76B3C2D2BD5A900E19CCD /* AdvancedUsersListView.swift */; };
 		18C76B612D2BD5A900E19CCD /* AdvancedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C76B3D2D2BD5A900E19CCD /* AdvancedView.swift */; };
@@ -62,6 +58,10 @@
 		18C76BE52D2BD6E500E19CCD /* TestBaseURLProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C76BD42D2BD6E500E19CCD /* TestBaseURLProvider.swift */; };
 		18C76BE82D2BD75A00E19CCD /* API_CallingApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C76BE62D2BD75A00E19CCD /* API_CallingApp.swift */; };
 		18C76BE92D2BD75A00E19CCD /* API_CallingApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C76BE62D2BD75A00E19CCD /* API_CallingApp.swift */; };
+		18C76BEB2D2BDAA000E19CCD /* AdvancedPlayerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C76BEA2D2BDAA000E19CCD /* AdvancedPlayerModel.swift */; };
+		18C76BEC2D2BDAA000E19CCD /* AdvancedPlayerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C76BEA2D2BDAA000E19CCD /* AdvancedPlayerModel.swift */; };
+		18C76BF12D2BDABB00E19CCD /* RecreationalPlayerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C76BF02D2BDABB00E19CCD /* RecreationalPlayerModel.swift */; };
+		18C76BF22D2BDABB00E19CCD /* RecreationalPlayerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C76BF02D2BDABB00E19CCD /* RecreationalPlayerModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,8 +94,6 @@
 		18C76A3D2D2685ED00E19CCD /* AdvancedVMTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvancedVMTests.swift; sourceTree = "<group>"; };
 		18C76A6F2D2BD07100E19CCD /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		18C76A782D2BD07C00E19CCD /* LoadingStates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingStates.swift; sourceTree = "<group>"; };
-		18C76B312D2BD5A900E19CCD /* AdvancedPlayersModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AdvancedPlayersModel.swift; path = Models/AdvancedPlayersModel.swift; sourceTree = "<group>"; };
-		18C76B382D2BD5A900E19CCD /* RecreationalPlayersModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RecreationalPlayersModel.swift; path = Models/RecreationalPlayersModel.swift; sourceTree = "<group>"; };
 		18C76B3C2D2BD5A900E19CCD /* AdvancedUsersListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AdvancedUsersListView.swift; path = Views/AdvancedUsersListView.swift; sourceTree = "<group>"; };
 		18C76B3D2D2BD5A900E19CCD /* AdvancedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AdvancedView.swift; path = Views/AdvancedView.swift; sourceTree = "<group>"; };
 		18C76B422D2BD5A900E19CCD /* LandingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LandingView.swift; path = Views/LandingView.swift; sourceTree = "<group>"; };
@@ -116,6 +114,8 @@
 		18C76BD32D2BD6E500E19CCD /* JSONFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONFetcher.swift; sourceTree = "<group>"; };
 		18C76BD42D2BD6E500E19CCD /* TestBaseURLProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestBaseURLProvider.swift; sourceTree = "<group>"; };
 		18C76BE62D2BD75A00E19CCD /* API_CallingApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API_CallingApp.swift; sourceTree = "<group>"; };
+		18C76BEA2D2BDAA000E19CCD /* AdvancedPlayerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvancedPlayerModel.swift; sourceTree = "<group>"; };
+		18C76BF02D2BDABB00E19CCD /* RecreationalPlayerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecreationalPlayerModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -234,7 +234,7 @@
 		18C76B332D2BD5A900E19CCD /* Advanced */ = {
 			isa = PBXGroup;
 			children = (
-				18C76B312D2BD5A900E19CCD /* AdvancedPlayersModel.swift */,
+				18C76BEA2D2BDAA000E19CCD /* AdvancedPlayerModel.swift */,
 			);
 			path = Advanced;
 			sourceTree = "<group>";
@@ -249,7 +249,7 @@
 		18C76B3A2D2BD5A900E19CCD /* Recreational */ = {
 			isa = PBXGroup;
 			children = (
-				18C76B382D2BD5A900E19CCD /* RecreationalPlayersModel.swift */,
+				18C76BF02D2BDABB00E19CCD /* RecreationalPlayerModel.swift */,
 			);
 			path = Recreational;
 			sourceTree = "<group>";
@@ -534,7 +534,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				18C76B772D2BD5AA00E19CCD /* RecreationalViewModel.swift in Sources */,
-				18C76B5D2D2BD5A900E19CCD /* RecreationalPlayersModel.swift in Sources */,
 				18C76A792D2BD07C00E19CCD /* LoadingStates.swift in Sources */,
 				18C76B672D2BD5A900E19CCD /* LandingView.swift in Sources */,
 				18C76B612D2BD5A900E19CCD /* AdvancedView.swift in Sources */,
@@ -547,11 +546,12 @@
 				18C76BDC2D2BD6E500E19CCD /* JSONFetcherDelegate.swift in Sources */,
 				18C76A762D2BD07100E19CCD /* Utils.swift in Sources */,
 				18C76BDA2D2BD6E500E19CCD /* BaseURLProviderDelegate.swift in Sources */,
+				18C76BF12D2BDABB00E19CCD /* RecreationalPlayerModel.swift in Sources */,
 				18C76B6F2D2BD5AA00E19CCD /* RecreationalView.swift in Sources */,
+				18C76BEB2D2BDAA000E19CCD /* AdvancedPlayerModel.swift in Sources */,
 				18C76B942D2BD5C600E19CCD /* RecreationalMockData.swift in Sources */,
 				18C76B712D2BD5AA00E19CCD /* AdvancedViewModel.swift in Sources */,
 				18C76BE82D2BD75A00E19CCD /* API_CallingApp.swift in Sources */,
-				18C76B572D2BD5A900E19CCD /* AdvancedPlayersModel.swift in Sources */,
 				18C76BE22D2BD6E500E19CCD /* JSONFetcher.swift in Sources */,
 				18C76BE42D2BD6E500E19CCD /* TestBaseURLProvider.swift in Sources */,
 				18C76BE02D2BD6E500E19CCD /* APIService.swift in Sources */,
@@ -571,7 +571,6 @@
 				18C76A3E2D2685ED00E19CCD /* AdvancedVMTests.swift in Sources */,
 				18C76BE32D2BD6E500E19CCD /* JSONFetcher.swift in Sources */,
 				18C76B722D2BD5AA00E19CCD /* AdvancedViewModel.swift in Sources */,
-				18C76B5E2D2BD5A900E19CCD /* RecreationalPlayersModel.swift in Sources */,
 				18C76B892D2BD5C600E19CCD /* AdvancedMockData.swift in Sources */,
 				18C76B702D2BD5AA00E19CCD /* RecreationalView.swift in Sources */,
 				18C76BE92D2BD75A00E19CCD /* API_CallingApp.swift in Sources */,
@@ -581,11 +580,12 @@
 				18C76A772D2BD07100E19CCD /* Utils.swift in Sources */,
 				18C76BD92D2BD6E500E19CCD /* APIServiceDelegate.swift in Sources */,
 				18C76B682D2BD5A900E19CCD /* LandingView.swift in Sources */,
+				18C76BF22D2BDABB00E19CCD /* RecreationalPlayerModel.swift in Sources */,
 				18C76B782D2BD5AA00E19CCD /* RecreationalViewModel.swift in Sources */,
 				18C76B6E2D2BD5AA00E19CCD /* RecreationalListView.swift in Sources */,
 				18C76B602D2BD5A900E19CCD /* AdvancedUsersListView.swift in Sources */,
 				18C76BE12D2BD6E500E19CCD /* APIService.swift in Sources */,
-				18C76B582D2BD5A900E19CCD /* AdvancedPlayersModel.swift in Sources */,
+				18C76BEC2D2BDAA000E19CCD /* AdvancedPlayerModel.swift in Sources */,
 				18C76B622D2BD5A900E19CCD /* AdvancedView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

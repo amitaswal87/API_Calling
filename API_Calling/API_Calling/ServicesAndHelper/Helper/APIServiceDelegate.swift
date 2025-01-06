@@ -9,5 +9,5 @@ import Foundation
 import Combine
 
 protocol APIServiceDelegate{
-    func fetch<T: Decodable>(request: URLRequest) -> AnyPublisher<T, Error> 
+    func fetchData<T: Decodable>(request: URLRequest) -> AnyPublisher<T, Error> 
 }

@@ -29,8 +29,10 @@ struct AdvancedView: View {
                 EmptyView()
             }
         }
-        .navigationTitle("Advanced View") 
+        // setting navigation title
+        .navigationTitle("Advanced View")
         .onAppear {
+            // calling fetch api data method on appear of the view
             advancedViewModel.fetchAdvancedPlayers()
         }
     }

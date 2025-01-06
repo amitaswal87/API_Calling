@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct AdvancedUsersListView: View {
-    let users: [AdvancedPlayersModel]
+    let users: [AdvancedPlayerModel]
 
     var body: some View {
         ScrollView {

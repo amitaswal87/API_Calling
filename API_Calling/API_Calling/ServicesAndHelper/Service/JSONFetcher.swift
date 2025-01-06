@@ -15,7 +15,7 @@ class JSONFetcher : JSONFetcherDelegate{
     /// Fetches JSON data from a file and decodes it into the specified model type.
     func fetchJson<T: Decodable>(from fileName: String, as type: T.Type) throws -> T {
         guard let url = Bundle.main.url(forResource: fileName, withExtension: "json") else {
-               print("File not found")
+               debugPrint("File not found")
             throw JSONFetchError.fileNotFound
            }
            
@@ -24,7 +24,7 @@ class JSONFetcher : JSONFetcherDelegate{
                let decodedData = try JSONDecoder().decode(T.self, from: data)
                return decodedData
            } catch {
-               print("Error decoding JSON: \(error)")
+               debugPrint("Error decoding JSON: \(error)")
                throw JSONFetchError.decodingFailed
            }
     }

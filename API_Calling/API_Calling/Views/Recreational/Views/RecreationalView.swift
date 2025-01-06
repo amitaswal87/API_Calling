@@ -33,8 +33,10 @@ struct RecreationalView: View {
                    EmptyView()
                }
            }
+           // setting navigation title
            .navigationTitle("Recreational View")
            .onAppear {
+               // calling fetch api data method on appear of the view
                viewModel.fetchRecreationalPlayers()
            }
        }

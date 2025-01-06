@@ -17,7 +17,7 @@ class APIService: APIServiceDelegate {
     }
 
     // fetch api response
-    func fetch<T: Decodable>(request: URLRequest) -> AnyPublisher<T, Error> {
+    func fetchData<T: Decodable>(request: URLRequest) -> AnyPublisher<T, Error> {
 
         return urlSession.dataTaskPublisher(for: request)
             .map(\.data)

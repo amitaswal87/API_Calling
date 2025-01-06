@@ -1,14 +1,14 @@
 //
-//  RecreationalPlayersModel.swift
+//  RecreationalPlayerModel.swift
 //  API_Calling
 //
-//  Created by apple  on 26/12/24.
+//  Created by apple  on 06/01/25.
 //
 
 import Foundation
 
 // MARK: - Recreational User Model
-struct RecreationalPlayersModel: Identifiable, Codable , Equatable {
+struct RecreationalPlayerModel: Identifiable, Codable , Equatable {
     let id: Int
     let name: String
     let username: String
