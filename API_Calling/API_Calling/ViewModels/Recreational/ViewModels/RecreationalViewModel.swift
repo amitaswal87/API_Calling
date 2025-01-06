@@ -11,37 +11,35 @@ import Combine
 class RecreationalViewModel : ObservableObject {
     
     // Published properties to notify changes to view
-    @Published var state: LoadingState      = .none
-    @Published var recreationalPlayers      : [RecreationalPlayerModel] = []
-
+    @Published var loadingState: LoadingState       = .none
+    @Published var recreationalPlayerList           : [RecreationalPlayerModel] = []
     // Private variables used inside the class only
-    private var cancellables                = Set<AnyCancellable>()
-    private let apiService                  : APIServiceDelegate
-    private let requestBuilder              : APIRequestBuilderDelegate
+    private var subscriptions                       = Set<AnyCancellable>()
+    private let apiClient                           : APIServiceDelegate
+    // public
+    let apiRequestBuilder                           : APIRequestBuilderDelegate
     
-    // innitializer
-    init(apiService: APIServiceDelegate , requestBuilder : APIRequestBuilderDelegate) {
-        self.apiService = apiService
-        self.requestBuilder = requestBuilder
+    //MARK: innitializer
+    init(apiClient: APIServiceDelegate , apiRequestBuilder : APIRequestBuilderDelegate) {
+        self.apiClient = apiClient
+        self.apiRequestBuilder = apiRequestBuilder
     }
     
-    // fetching recreational players
+    //MARK: Fetching recreational players
     func fetchRecreationalPlayers(){
-
-        // updating state
-        self.state = .loading
         
+        // updating state
+        self.loadingState = .loading
         // building request
-        guard let urlRequest = self.requestBuilder
+        guard let urlRequest = self.apiRequestBuilder
             .build() else{
             return
         }
-        
         // api data fetch call
-        apiService.fetchData(request: urlRequest)
+        apiClient.fetchData(request: urlRequest)
             .sink(receiveCompletion: { [weak self] completion   in
                 // updating state
-                self?.state = .loaded
+                self?.loadingState = .loaded
                 
                 switch completion {
                 case .finished:
@@ -49,12 +47,12 @@ class RecreationalViewModel : ObservableObject {
                 case .failure(let error):
                     debugPrint("Failed with error: \(error)")
                     // updating state
-                    self?.state = .error(error.localizedDescription)
+                    self?.loadingState = .error(error.localizedDescription)
                 }
-            }, receiveValue: { [weak self] (recreationalPlayers: [RecreationalPlayerModel]) in
+            }, receiveValue: { [weak self] (recreationalPlayerList: [RecreationalPlayerModel]) in
                 // updating players array to update in view
-                self?.recreationalPlayers = recreationalPlayers
-            }).store(in: &cancellables)
+                self?.recreationalPlayerList = recreationalPlayerList
+            }).store(in: &subscriptions)
     }
     
 }

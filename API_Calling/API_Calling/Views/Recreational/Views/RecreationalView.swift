@@ -10,16 +10,16 @@ import SwiftUI
 
 struct RecreationalView: View {
 
-    @StateObject private var viewModel : RecreationalViewModel
+    @StateObject private var recreationalViewModel : RecreationalViewModel
     
-    init(viewModel: RecreationalViewModel) {
-        _viewModel = StateObject(wrappedValue: viewModel)
+    init(recreationalViewModel: RecreationalViewModel) {
+        _recreationalViewModel = StateObject(wrappedValue: recreationalViewModel)
     }
     
        var body: some View {
            VStack {
                
-               switch viewModel.state {
+               switch recreationalViewModel.loadingState {
                case .loading:
                    ProgressView("Loading")
                        .padding()
@@ -28,7 +28,7 @@ struct RecreationalView: View {
                        .foregroundColor(.red)
                        .padding()
                case .loaded:
-                   RecreationalListView(users: viewModel.recreationalPlayers)
+                   RecreationalListView(recreationalPlayerList: recreationalViewModel.recreationalPlayerList)
                default:
                    EmptyView()
                }
@@ -37,12 +37,12 @@ struct RecreationalView: View {
            .navigationTitle("Recreational View")
            .onAppear {
                // calling fetch api data method on appear of the view
-               viewModel.fetchRecreationalPlayers()
+               recreationalViewModel.fetchRecreationalPlayers()
            }
        }
 }
 
 #Preview {
-    RecreationalView(viewModel: RecreationalViewModel(apiService:  APIService(urlSession: URLSession.shared), requestBuilder: APIRequestBuilder(baseURL: TestBaseURLProvider().baseURL)
+    RecreationalView(recreationalViewModel: RecreationalViewModel(apiClient:  APIService(urlSession: URLSession.shared), apiRequestBuilder: APIRequestBuilder(baseURL: TestBaseURLProvider().baseURL)
         .setPath(APIEndpoints.fetchRecreationalPlayers.path)))
 }

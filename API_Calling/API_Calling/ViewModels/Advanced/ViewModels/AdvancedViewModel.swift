@@ -11,36 +11,34 @@ import Combine
 class AdvancedViewModel : ObservableObject {
     
     // Published properties to notify changes to view
-    @Published var state: LoadingState      = .none
-    @Published var advancedPlayers          : [AdvancedPlayerModel] = []
-
+    @Published var loadingState: LoadingState       = .none
+    @Published var advancedPlayerList               : [AdvancedPlayerModel] = []
     // Private variables used inside the class only
-    private var cancellables                = Set<AnyCancellable>()
-    private let apiService                  : APIServiceDelegate
-    private let urlRequestBuilder           : APIRequestBuilderDelegate
+    private var subscriptions                       = Set<AnyCancellable>()
+    private let apiClient                           : APIServiceDelegate
+    // Pubic
+    let apiRequestBuilder                           : APIRequestBuilderDelegate
     
-    // innitializer
-    init(apiService: APIServiceDelegate , urlRequestBuilder : APIRequestBuilderDelegate) {
-        self.apiService = apiService
-        self.urlRequestBuilder = urlRequestBuilder
+    //MARK: Innitializer
+    init(apiClient: APIServiceDelegate , apiRequestBuilder : APIRequestBuilderDelegate) {
+        self.apiClient = apiClient
+        self.apiRequestBuilder = apiRequestBuilder
     }
 
-    // fetching advanced players
+    //MARK: fetching advanced players
     func fetchAdvancedPlayers(){
         
         // updating state
-        self.state = .loading
-
-        guard let urlRequest = self.urlRequestBuilder
+        self.loadingState = .loading
+        guard let urlRequest = self.apiRequestBuilder
             .build() else{
             return
         }
-        
         // fetch service called
-        apiService.fetchData(request: urlRequest)
+        apiClient.fetchData(request: urlRequest)
             .sink(receiveCompletion: { [weak self] completion   in
                 // updating state
-                self?.state = .loaded
+                self?.loadingState = .loaded
                 
                 switch completion {
                 case .finished:
@@ -48,12 +46,12 @@ class AdvancedViewModel : ObservableObject {
                 case .failure(let error):
                     debugPrint("Failed with error: \(error)")
                     // updating state
-                    self?.state = .error(error.localizedDescription)
+                    self?.loadingState = .error(error.localizedDescription)
                 }
-            }, receiveValue: { [weak self] (advancedPlayers: [AdvancedPlayerModel]) in
+            }, receiveValue: { [weak self] (advancedPlayerList: [AdvancedPlayerModel]) in
                 // updating players array to update in view
-                self?.advancedPlayers = advancedPlayers
-            }).store(in: &cancellables)
+                self?.advancedPlayerList = advancedPlayerList
+            }).store(in: &subscriptions)
     }
     
 }

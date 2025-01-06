@@ -10,7 +10,7 @@ import Foundation
 // Create a separate struct or class to handle mock data for testing coming from json
 struct RecreationalMockData {
     let jsonFetcher : JSONFetcherDelegate
-    var mockUsers: [RecreationalPlayerModel] {
+    var mockUserList: [RecreationalPlayerModel] {
         do {
             return try jsonFetcher.fetchJson(from: "RecreationalPlayersMockData", as: [RecreationalPlayerModel].self)
         } catch JSONFetchError.fileNotFound {

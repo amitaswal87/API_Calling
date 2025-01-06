@@ -15,7 +15,7 @@ struct AdvancedView: View {
     }
     var body: some View {
         VStack {
-            switch self.advancedViewModel.state {
+            switch self.advancedViewModel.loadingState {
             case .loading:
                 ProgressView("Loading")
                     .padding()
@@ -24,7 +24,7 @@ struct AdvancedView: View {
                     .foregroundColor(.red)
                     .padding()
             case .loaded:
-                AdvancedUsersListView(users: self.advancedViewModel.advancedPlayers)
+                AdvancedUsersListView(advancedPlayerList: self.advancedViewModel.advancedPlayerList)
             default:
                 EmptyView()
             }
@@ -39,5 +39,5 @@ struct AdvancedView: View {
 }
 
 #Preview {
-    AdvancedView(advancedViewModel: AdvancedViewModel(apiService: APIService(urlSession: URLSession.shared) ,  urlRequestBuilder: APIRequestBuilder(baseURL: TestBaseURLProvider().baseURL).setPath((APIEndpoints.fetchAdvancedPlayers.path))))
+    AdvancedView(advancedViewModel: AdvancedViewModel(apiClient: APIService(urlSession: URLSession.shared) ,  apiRequestBuilder: APIRequestBuilder(baseURL: TestBaseURLProvider().baseURL).setPath((APIEndpoints.fetchAdvancedPlayers.path))))
 }

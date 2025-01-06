@@ -6,13 +6,14 @@
 //
 
 import Foundation
+
 enum JSONFetchError: Error {
     case fileNotFound
     case decodingFailed
 }
 
 class JSONFetcher : JSONFetcherDelegate{
-    /// Fetches JSON data from a file and decodes it into the specified model type.
+    //MARK:  Fetches JSON data
     func fetchJson<T: Decodable>(from fileName: String, as type: T.Type) throws -> T {
         guard let url = Bundle.main.url(forResource: fileName, withExtension: "json") else {
                debugPrint("File not found")

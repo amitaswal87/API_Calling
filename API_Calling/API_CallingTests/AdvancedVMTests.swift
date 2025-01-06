@@ -11,19 +11,19 @@ import XCTest
 import Combine
 
 class AdvancedVMTests: XCTestCase {
-    private var viewModel: AdvancedViewModel!
+    private var advancedViewModel: AdvancedViewModel!
     private var apiService: APIService!
     private var cancellables: Set<AnyCancellable>!
     
     override func setUp() {
         super.setUp()
         apiService = APIService(urlSession: URLSession.shared)
-        viewModel = AdvancedViewModel(apiService: APIService(urlSession: URLSession.shared) ,  urlRequestBuilder: APIRequestBuilder(baseURL: TestBaseURLProvider().baseURL))
+        advancedViewModel = AdvancedViewModel(apiClient: APIService(urlSession: URLSession.shared) ,  apiRequestBuilder: APIRequestBuilder(baseURL: TestBaseURLProvider().baseURL))
         cancellables = []
     }
     
     override func tearDown() {
-        viewModel = nil
+        advancedViewModel = nil
         apiService = nil
         cancellables = nil
         super.tearDown()
@@ -31,27 +31,27 @@ class AdvancedVMTests: XCTestCase {
     
     // test innitial setup
     func testInitialState() {
-        XCTAssertTrue(viewModel.advancedPlayers.isEmpty)
-        XCTAssertFalse(viewModel.state == .loading)
+        XCTAssertTrue(advancedViewModel.advancedPlayerList.isEmpty)
+        XCTAssertFalse(advancedViewModel.loadingState == .loading)
     }
     
     // test if data coming from server is correct
     func testFetchAdvancedPlayersSuccess() {
         // Mock response
-        let mockUsers = AdvancedMockData(jsonFetcher: JSONFetcher()).mockUsers
+        let mockUserList = AdvancedMockData(jsonFetcher: JSONFetcher()).mockUserList
         
-        _ = viewModel.urlRequestBuilder.setPath(APIEndpoints.fetchAdvancedPlayers.path)
+        _ = advancedViewModel.apiRequestBuilder.setPath(APIEndpoints.fetchAdvancedPlayers.path)
         
         let expectation = self.expectation(description: "Fetch users successfully")
         
-        viewModel.$advancedPlayers
+        advancedViewModel.$advancedPlayerList
             .dropFirst()
             .sink { users in
-                XCTAssertEqual(users, mockUsers)
+                XCTAssertEqual(users, mockUserList)
                 expectation.fulfill()
             }.store(in: &cancellables)
         
-        viewModel.fetchAdvancedPlayers()
+        advancedViewModel.fetchAdvancedPlayers()
         
         waitForExpectations(timeout: 3.0)
     }
@@ -60,18 +60,18 @@ class AdvancedVMTests: XCTestCase {
         
         let expectation = self.expectation(description: "Fetch users failure")
         
-        _ = viewModel.urlRequestBuilder.setPath(APIEndpoints.custom("/custom").path)
-        viewModel.$state
+        _ = advancedViewModel.apiRequestBuilder.setPath(APIEndpoints.custom("/custom").path)
+        advancedViewModel.$loadingState
             .dropFirst()
-            .sink { state in
-                if case .error(let errorMessage) = state {
+            .sink { loadingState in
+                if case .error(let errorMessage) = loadingState {
                     XCTAssertEqual(errorMessage, "The data couldn’t be read because it isn’t in the correct format.")
                     expectation.fulfill()
                 }
             }
             .store(in: &cancellables)
         
-        viewModel.fetchAdvancedPlayers()
+        advancedViewModel.fetchAdvancedPlayers()
         
         waitForExpectations(timeout: 3.0)
     }

@@ -8,31 +8,35 @@
 import SwiftUI
 
 struct RecreationalListView: View {
-    let users: [RecreationalPlayerModel]
+    let recreationalPlayerList: [RecreationalPlayerModel]
 
     var body: some View {
         ScrollView {
             LazyVStack(spacing: 10) {
-                ForEach(users) { user in
+                ForEach(recreationalPlayerList) { player in
                     VStack(alignment: .leading, spacing: 5) {
-                        Text(user.name)
+                        Text(player.name)
                             .font(.headline)
-                        Text(user.email)
+                        Text(player.email)
                             .font(.subheadline)
                             .foregroundColor(.gray)
                     }
                     .padding()
+                    .frame(maxWidth: .infinity, alignment: .leading)
                     .background(Color.white)
                     .cornerRadius(8)
                     .shadow(radius: 2)
+                    
                 }
+                .padding(.horizontal)
             }
-        }.frame(maxWidth: .infinity)
+        }
+        .background(Color(UIColor.systemGroupedBackground))
     }
 }
 
 
 
 #Preview {
-    RecreationalListView(users: RecreationalMockData(jsonFetcher: JSONFetcher()).mockUsers)
+    RecreationalListView(recreationalPlayerList: RecreationalMockData(jsonFetcher: JSONFetcher()).mockUserList)
 }

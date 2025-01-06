@@ -11,18 +11,18 @@ import XCTest
 import Combine
 
 class RecreationalVMTests: XCTestCase {
-    private var viewModel: RecreationalViewModel!
+    private var recreationalViewModel: RecreationalViewModel!
     private var mockAPIService: APIService!
     private var cancellables: Set<AnyCancellable>!
     override func setUp() {
         super.setUp()
         mockAPIService = APIService(urlSession: URLSession.shared)
-        viewModel = RecreationalViewModel(apiService: mockAPIService, requestBuilder: APIRequestBuilder(baseURL: TestBaseURLProvider().baseURL))
+        recreationalViewModel = RecreationalViewModel(apiClient: mockAPIService, apiRequestBuilder: APIRequestBuilder(baseURL: TestBaseURLProvider().baseURL))
         cancellables = []
     }
     
     override func tearDown() {
-        viewModel = nil
+        recreationalViewModel = nil
         mockAPIService = nil
         cancellables = nil
         super.tearDown()
@@ -30,27 +30,28 @@ class RecreationalVMTests: XCTestCase {
     
     // test innitial setup
     func testInitialState() {
-        XCTAssertTrue(viewModel.recreationalPlayers.isEmpty)
-        XCTAssertFalse(viewModel.state == .loading)
+        XCTAssertTrue(recreationalViewModel.recreationalPlayerList.isEmpty)
+        XCTAssertFalse(recreationalViewModel.loadingState == .loading)
     }
     
     // test if data coming from server is correct
     func testFetchRecreationalPlayersSuccess() {
         // Mock response
-        let mockUsers = RecreationalMockData(jsonFetcher: JSONFetcher()).mockUsers
+        
+        let mockUserList = RecreationalMockData(jsonFetcher: JSONFetcher()).mockUserList
         
         let expectation = self.expectation(description: "Fetch users successfully")
-        _ = viewModel.requestBuilder.setPath(APIEndpoints.fetchRecreationalPlayers.path)
+        _ = recreationalViewModel.apiRequestBuilder.setPath(APIEndpoints.fetchRecreationalPlayers.path)
         
-        viewModel.$recreationalPlayers
+        recreationalViewModel.$recreationalPlayerList
             .dropFirst()
             .sink { users in
-                XCTAssertEqual(users, mockUsers)
+                XCTAssertEqual(users, mockUserList)
                 expectation.fulfill()
             }
             .store(in: &cancellables)
         
-        viewModel.fetchRecreationalPlayers()
+        recreationalViewModel.fetchRecreationalPlayers()
         
         waitForExpectations(timeout: 3.0)
     }
@@ -60,18 +61,18 @@ class RecreationalVMTests: XCTestCase {
         
         let expectation = self.expectation(description: "Fetch users failure")
         
-        _ = viewModel.requestBuilder.setPath(APIEndpoints.custom("/custom").path)
-        viewModel.$state
+        _ = recreationalViewModel.apiRequestBuilder.setPath(APIEndpoints.custom("/custom").path)
+        recreationalViewModel.$loadingState
             .dropFirst()
-            .sink { state in
-                if case .error(let errorMessage) = state {
+            .sink { loadingState in
+                if case .error(let errorMessage) = loadingState {
                     XCTAssertEqual(errorMessage, "The data couldn’t be read because it isn’t in the correct format.")
                     expectation.fulfill()
                 }
             }
             .store(in: &cancellables)
         
-        viewModel.fetchRecreationalPlayers()
+        recreationalViewModel.fetchRecreationalPlayers()
         
         waitForExpectations(timeout: 3.0)
     }

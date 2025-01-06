@@ -7,6 +7,7 @@
 
 import Foundation
 
+
 enum HTTPMethod: String {
     case get = "GET"
     case post = "POST"
@@ -36,11 +37,12 @@ class APIRequestBuilder: APIRequestBuilderDelegate {
     private var headers             : [String: String]  = [:]
     private var body                : Data?
     
-    
+    //MARK: Initializer
     init(baseURL: String) {
         self.urlComponents = URLComponents(string: baseURL)!
     }
     
+    //MARK: Builder methods
     func setPath(_ path: String) -> Self {
         self.urlComponents.path = path
         return self
@@ -61,7 +63,7 @@ class APIRequestBuilder: APIRequestBuilderDelegate {
         return self
     }
 
-    
+    //MARK: Build
     func build() -> URLRequest? {
         guard let url = urlComponents.url else { return nil }
         var request = URLRequest(url: url)

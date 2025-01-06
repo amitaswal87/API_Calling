@@ -8,30 +8,33 @@
 import SwiftUI
 
 struct AdvancedUsersListView: View {
-    let users: [AdvancedPlayerModel]
+    let advancedPlayerList: [AdvancedPlayerModel]
 
     var body: some View {
         ScrollView {
             LazyVStack(spacing: 10) {
-                ForEach(users) { user in
+                ForEach(advancedPlayerList) { player in
                     VStack(alignment: .leading, spacing: 5) {
-                        Text(user.name)
+                        Text(player.name)
                             .font(.headline)
-                        Text(user.phone)
+                        Text(player.phone)
                             .font(.subheadline)
                             .foregroundColor(.gray)
                     }
                     .padding()
+                    .frame(maxWidth: .infinity, alignment: .leading)
                     .background(Color.white)
                     .cornerRadius(8)
                     .shadow(radius: 2)
                     
                 }
+                .padding(.horizontal)
             }
         }
+        .background(Color(UIColor.systemGroupedBackground))
     }
 }
 
 #Preview {
-    AdvancedUsersListView(users: AdvancedMockData(jsonFetcher: JSONFetcher()).mockUsers)
+    AdvancedUsersListView(advancedPlayerList: AdvancedMockData(jsonFetcher: JSONFetcher()).mockUserList)
 }
