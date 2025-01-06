@@ -10,6 +10,12 @@ import SwiftUI
 
 struct LandingView: View {
     
+    private var landingViewModel : LandingViewModel
+    
+    init(landingViewModel: LandingViewModel) {
+        self.landingViewModel = landingViewModel
+    }
+    
     var body: some View {
         NavigationView {            
             
@@ -23,26 +29,15 @@ struct LandingView: View {
                 // Buttons in the center
                 VStack(spacing: 20) {
                     
-                    
-                    // create apiBuilder object
-                    let apiBuilderRecreational = APIRequestBuilder(baseURL: TestBaseURLProvider().baseURL)
-                        .setPath(APIEndpoints.fetchRecreationalPlayers.path)
-                    // creat viewModel
-                    let recreationalViewModel = RecreationalViewModel(apiClient: APIService(urlSession: URLSession.shared), apiRequestBuilder: apiBuilderRecreational)
                     // navigate to recreationUsers view
-                    NavigationLink(destination: RecreationalView(recreationalViewModel:recreationalViewModel )) {
+                    NavigationLink(destination: RecreationalView(recreationalViewModel:self.landingViewModel.makeRecreationalViewModel())) {
                         Text("Recreational Players")
                     }
                     .buttonStyle(PrimaryButtonStyle(backgroundColor: .black))
                     
                     
-                    // create apiBuilder object
-                    let apiBuilderAdvanced = APIRequestBuilder(baseURL: TestBaseURLProvider().baseURL)
-                        .setPath(APIEndpoints.fetchAdvancedPlayers.path)
-                    // create viewModel
-                    let advancedViewModel = AdvancedViewModel(apiClient: APIService(urlSession: URLSession.shared) ,  apiRequestBuilder: apiBuilderAdvanced)
                     // navigate to AdvancedView
-                    NavigationLink(destination: AdvancedView(advancedViewModel: advancedViewModel)) {
+                    NavigationLink(destination: AdvancedView(advancedViewModel: self.landingViewModel.makeAdvancedViewModel())) {
                         Text("Advanced Players")
                     }
                     .buttonStyle(PrimaryButtonStyle(backgroundColor: .black))
@@ -55,5 +50,5 @@ struct LandingView: View {
 }
 
 #Preview {
-    LandingView()
+    LandingView(landingViewModel: LandingViewModel(apiClient: APIService(urlSession: URLSession.shared)))
 }

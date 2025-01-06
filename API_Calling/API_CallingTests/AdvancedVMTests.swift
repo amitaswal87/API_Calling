@@ -18,7 +18,7 @@ class AdvancedVMTests: XCTestCase {
     override func setUp() {
         super.setUp()
         apiService = APIService(urlSession: URLSession.shared)
-        advancedViewModel = AdvancedViewModel(apiClient: APIService(urlSession: URLSession.shared) ,  apiRequestBuilder: APIRequestBuilder(baseURL: TestBaseURLProvider().baseURL))
+        advancedViewModel = AdvancedViewModel(apiClient: APIService(urlSession: URLSession.shared) ,  apiRequestBuilder: APIRequestBuilder(baseURL: BaseURLProviderFactory.provider(for: .test).baseURL))
         cancellables = []
     }
     

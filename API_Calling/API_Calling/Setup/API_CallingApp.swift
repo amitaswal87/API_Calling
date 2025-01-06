@@ -11,7 +11,10 @@ import SwiftUI
 struct API_CallingApp: App {
     var body: some Scene {
         WindowGroup {
-            LandingView()
+            let apiClient = APIService(urlSession: URLSession.shared)
+            
+            let landingViewModel = LandingViewModel(apiClient: apiClient)
+            LandingView(landingViewModel: landingViewModel)
         }
     }
 }

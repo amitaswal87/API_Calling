@@ -43,6 +43,6 @@ struct RecreationalView: View {
 }
 
 #Preview {
-    RecreationalView(recreationalViewModel: RecreationalViewModel(apiClient:  APIService(urlSession: URLSession.shared), apiRequestBuilder: APIRequestBuilder(baseURL: TestBaseURLProvider().baseURL)
+    RecreationalView(recreationalViewModel: RecreationalViewModel(apiClient:  APIService(urlSession: URLSession.shared), apiRequestBuilder: APIRequestBuilder(baseURL: BaseURLProviderFactory.provider(for: .test).baseURL)
         .setPath(APIEndpoints.fetchRecreationalPlayers.path)))
 }

@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		189E85282D2BF9390049EE4B /* LandingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189E85272D2BF9390049EE4B /* LandingViewModel.swift */; };
+		189E85292D2BFAA70049EE4B /* LandingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189E85272D2BF9390049EE4B /* LandingViewModel.swift */; };
+		189E852F2D2C06650049EE4B /* TestBaseURLProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189E852E2D2C06650049EE4B /* TestBaseURLProvider.swift */; };
+		189E85312D2C066C0049EE4B /* ProdBaseURLProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189E85302D2C066C0049EE4B /* ProdBaseURLProvider.swift */; };
+		189E85332D2C08130049EE4B /* BaseURLProviderFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189E85322D2C08130049EE4B /* BaseURLProviderFactory.swift */; };
 		18B049712D1D3D1B00E62C39 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18B049702D1D3D1B00E62C39 /* Assets.xcassets */; };
 		18B049742D1D3D1B00E62C39 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18B049732D1D3D1B00E62C39 /* Preview Assets.xcassets */; };
 		18B0497E2D1D3D1C00E62C39 /* API_CallingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B0497D2D1D3D1C00E62C39 /* API_CallingTests.swift */; };
@@ -54,8 +59,6 @@
 		18C76BE12D2BD6E500E19CCD /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C76BD22D2BD6E500E19CCD /* APIService.swift */; };
 		18C76BE22D2BD6E500E19CCD /* JSONFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C76BD32D2BD6E500E19CCD /* JSONFetcher.swift */; };
 		18C76BE32D2BD6E500E19CCD /* JSONFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C76BD32D2BD6E500E19CCD /* JSONFetcher.swift */; };
-		18C76BE42D2BD6E500E19CCD /* TestBaseURLProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C76BD42D2BD6E500E19CCD /* TestBaseURLProvider.swift */; };
-		18C76BE52D2BD6E500E19CCD /* TestBaseURLProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C76BD42D2BD6E500E19CCD /* TestBaseURLProvider.swift */; };
 		18C76BE82D2BD75A00E19CCD /* API_CallingApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C76BE62D2BD75A00E19CCD /* API_CallingApp.swift */; };
 		18C76BE92D2BD75A00E19CCD /* API_CallingApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C76BE62D2BD75A00E19CCD /* API_CallingApp.swift */; };
 		18C76BEB2D2BDAA000E19CCD /* AdvancedPlayerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C76BEA2D2BDAA000E19CCD /* AdvancedPlayerModel.swift */; };
@@ -82,6 +85,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		189E85272D2BF9390049EE4B /* LandingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LandingViewModel.swift; path = Landing/LandingViewModel.swift; sourceTree = "<group>"; };
+		189E852E2D2C06650049EE4B /* TestBaseURLProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestBaseURLProvider.swift; sourceTree = "<group>"; };
+		189E85302D2C066C0049EE4B /* ProdBaseURLProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProdBaseURLProvider.swift; sourceTree = "<group>"; };
+		189E85322D2C08130049EE4B /* BaseURLProviderFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseURLProviderFactory.swift; sourceTree = "<group>"; };
 		18B049692D1D3D1A00E62C39 /* API_Calling.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = API_Calling.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18B049702D1D3D1B00E62C39 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		18B049732D1D3D1B00E62C39 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -94,17 +101,17 @@
 		18C76A3D2D2685ED00E19CCD /* AdvancedVMTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvancedVMTests.swift; sourceTree = "<group>"; };
 		18C76A6F2D2BD07100E19CCD /* Utils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		18C76A782D2BD07C00E19CCD /* LoadingStates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingStates.swift; sourceTree = "<group>"; };
-		18C76B3C2D2BD5A900E19CCD /* AdvancedUsersListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AdvancedUsersListView.swift; path = Views/AdvancedUsersListView.swift; sourceTree = "<group>"; };
-		18C76B3D2D2BD5A900E19CCD /* AdvancedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AdvancedView.swift; path = Views/AdvancedView.swift; sourceTree = "<group>"; };
-		18C76B422D2BD5A900E19CCD /* LandingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LandingView.swift; path = Views/LandingView.swift; sourceTree = "<group>"; };
-		18C76B472D2BD5A900E19CCD /* RecreationalListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RecreationalListView.swift; path = Views/RecreationalListView.swift; sourceTree = "<group>"; };
-		18C76B482D2BD5A900E19CCD /* RecreationalView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RecreationalView.swift; path = Views/RecreationalView.swift; sourceTree = "<group>"; };
-		18C76B4C2D2BD5A900E19CCD /* AdvancedViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AdvancedViewModel.swift; path = ViewModels/AdvancedViewModel.swift; sourceTree = "<group>"; };
-		18C76B532D2BD5A900E19CCD /* RecreationalViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RecreationalViewModel.swift; path = ViewModels/RecreationalViewModel.swift; sourceTree = "<group>"; };
-		18C76B792D2BD5C600E19CCD /* AdvancedMockData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AdvancedMockData.swift; path = MockData/AdvancedMockData.swift; sourceTree = "<group>"; };
-		18C76B7A2D2BD5C600E19CCD /* AdvancedPlayersMockData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = AdvancedPlayersMockData.json; path = MockData/AdvancedPlayersMockData.json; sourceTree = "<group>"; };
-		18C76B832D2BD5C600E19CCD /* RecreationalMockData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RecreationalMockData.swift; path = MockData/RecreationalMockData.swift; sourceTree = "<group>"; };
-		18C76B842D2BD5C600E19CCD /* RecreationalPlayersMockData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = RecreationalPlayersMockData.json; path = MockData/RecreationalPlayersMockData.json; sourceTree = "<group>"; };
+		18C76B3C2D2BD5A900E19CCD /* AdvancedUsersListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AdvancedUsersListView.swift; path = Advanced/Views/AdvancedUsersListView.swift; sourceTree = "<group>"; };
+		18C76B3D2D2BD5A900E19CCD /* AdvancedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AdvancedView.swift; path = Advanced/Views/AdvancedView.swift; sourceTree = "<group>"; };
+		18C76B422D2BD5A900E19CCD /* LandingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LandingView.swift; path = Landing/Views/LandingView.swift; sourceTree = "<group>"; };
+		18C76B472D2BD5A900E19CCD /* RecreationalListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RecreationalListView.swift; path = Recreational/Views/RecreationalListView.swift; sourceTree = "<group>"; };
+		18C76B482D2BD5A900E19CCD /* RecreationalView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RecreationalView.swift; path = Recreational/Views/RecreationalView.swift; sourceTree = "<group>"; };
+		18C76B4C2D2BD5A900E19CCD /* AdvancedViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AdvancedViewModel.swift; path = Advanced/ViewModels/AdvancedViewModel.swift; sourceTree = "<group>"; };
+		18C76B532D2BD5A900E19CCD /* RecreationalViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RecreationalViewModel.swift; path = Recreational/ViewModels/RecreationalViewModel.swift; sourceTree = "<group>"; };
+		18C76B792D2BD5C600E19CCD /* AdvancedMockData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AdvancedMockData.swift; path = Advanced/MockData/AdvancedMockData.swift; sourceTree = "<group>"; };
+		18C76B7A2D2BD5C600E19CCD /* AdvancedPlayersMockData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = AdvancedPlayersMockData.json; path = Advanced/MockData/AdvancedPlayersMockData.json; sourceTree = "<group>"; };
+		18C76B832D2BD5C600E19CCD /* RecreationalMockData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RecreationalMockData.swift; path = Recreational/MockData/RecreationalMockData.swift; sourceTree = "<group>"; };
+		18C76B842D2BD5C600E19CCD /* RecreationalPlayersMockData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = RecreationalPlayersMockData.json; path = Recreational/MockData/RecreationalPlayersMockData.json; sourceTree = "<group>"; };
 		18C76BCC2D2BD6E500E19CCD /* APIRequestBuilderDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIRequestBuilderDelegate.swift; sourceTree = "<group>"; };
 		18C76BCD2D2BD6E500E19CCD /* APIServiceDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIServiceDelegate.swift; sourceTree = "<group>"; };
 		18C76BCE2D2BD6E500E19CCD /* BaseURLProviderDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseURLProviderDelegate.swift; sourceTree = "<group>"; };
@@ -112,10 +119,9 @@
 		18C76BD12D2BD6E500E19CCD /* APIRequestBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIRequestBuilder.swift; sourceTree = "<group>"; };
 		18C76BD22D2BD6E500E19CCD /* APIService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		18C76BD32D2BD6E500E19CCD /* JSONFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONFetcher.swift; sourceTree = "<group>"; };
-		18C76BD42D2BD6E500E19CCD /* TestBaseURLProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestBaseURLProvider.swift; sourceTree = "<group>"; };
 		18C76BE62D2BD75A00E19CCD /* API_CallingApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API_CallingApp.swift; sourceTree = "<group>"; };
-		18C76BEA2D2BDAA000E19CCD /* AdvancedPlayerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvancedPlayerModel.swift; sourceTree = "<group>"; };
-		18C76BF02D2BDABB00E19CCD /* RecreationalPlayerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecreationalPlayerModel.swift; sourceTree = "<group>"; };
+		18C76BEA2D2BDAA000E19CCD /* AdvancedPlayerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AdvancedPlayerModel.swift; path = Advanced/AdvancedPlayerModel.swift; sourceTree = "<group>"; };
+		18C76BF02D2BDABB00E19CCD /* RecreationalPlayerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RecreationalPlayerModel.swift; path = Recreational/RecreationalPlayerModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -231,131 +237,44 @@
 			path = Common;
 			sourceTree = "<group>";
 		};
-		18C76B332D2BD5A900E19CCD /* Advanced */ = {
-			isa = PBXGroup;
-			children = (
-				18C76BEA2D2BDAA000E19CCD /* AdvancedPlayerModel.swift */,
-			);
-			path = Advanced;
-			sourceTree = "<group>";
-		};
-		18C76B362D2BD5A900E19CCD /* Landing */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Landing;
-			sourceTree = "<group>";
-		};
-		18C76B3A2D2BD5A900E19CCD /* Recreational */ = {
-			isa = PBXGroup;
-			children = (
-				18C76BF02D2BDABB00E19CCD /* RecreationalPlayerModel.swift */,
-			);
-			path = Recreational;
-			sourceTree = "<group>";
-		};
 		18C76B3B2D2BD5A900E19CCD /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				18C76B332D2BD5A900E19CCD /* Advanced */,
-				18C76B362D2BD5A900E19CCD /* Landing */,
-				18C76B3A2D2BD5A900E19CCD /* Recreational */,
+				18C76BEA2D2BDAA000E19CCD /* AdvancedPlayerModel.swift */,
+				18C76BF02D2BDABB00E19CCD /* RecreationalPlayerModel.swift */,
 			);
 			path = Models;
-			sourceTree = "<group>";
-		};
-		18C76B3F2D2BD5A900E19CCD /* Advanced */ = {
-			isa = PBXGroup;
-			children = (
-				18C76B3C2D2BD5A900E19CCD /* AdvancedUsersListView.swift */,
-				18C76B3D2D2BD5A900E19CCD /* AdvancedView.swift */,
-			);
-			path = Advanced;
-			sourceTree = "<group>";
-		};
-		18C76B442D2BD5A900E19CCD /* Landing */ = {
-			isa = PBXGroup;
-			children = (
-				18C76B422D2BD5A900E19CCD /* LandingView.swift */,
-			);
-			path = Landing;
-			sourceTree = "<group>";
-		};
-		18C76B4A2D2BD5A900E19CCD /* Recreational */ = {
-			isa = PBXGroup;
-			children = (
-				18C76B472D2BD5A900E19CCD /* RecreationalListView.swift */,
-				18C76B482D2BD5A900E19CCD /* RecreationalView.swift */,
-			);
-			path = Recreational;
 			sourceTree = "<group>";
 		};
 		18C76B4B2D2BD5A900E19CCD /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				18C76B3F2D2BD5A900E19CCD /* Advanced */,
-				18C76B442D2BD5A900E19CCD /* Landing */,
-				18C76B4A2D2BD5A900E19CCD /* Recreational */,
+				18C76B422D2BD5A900E19CCD /* LandingView.swift */,
+				18C76B3D2D2BD5A900E19CCD /* AdvancedView.swift */,
+				18C76B3C2D2BD5A900E19CCD /* AdvancedUsersListView.swift */,
+				18C76B482D2BD5A900E19CCD /* RecreationalView.swift */,
+				18C76B472D2BD5A900E19CCD /* RecreationalListView.swift */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		18C76B4E2D2BD5A900E19CCD /* Advanced */ = {
-			isa = PBXGroup;
-			children = (
-				18C76B4C2D2BD5A900E19CCD /* AdvancedViewModel.swift */,
-			);
-			path = Advanced;
-			sourceTree = "<group>";
-		};
-		18C76B512D2BD5A900E19CCD /* Landing */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Landing;
-			sourceTree = "<group>";
-		};
-		18C76B552D2BD5A900E19CCD /* Recreational */ = {
-			isa = PBXGroup;
-			children = (
-				18C76B532D2BD5A900E19CCD /* RecreationalViewModel.swift */,
-			);
-			path = Recreational;
 			sourceTree = "<group>";
 		};
 		18C76B562D2BD5A900E19CCD /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				18C76B4E2D2BD5A900E19CCD /* Advanced */,
-				18C76B512D2BD5A900E19CCD /* Landing */,
-				18C76B552D2BD5A900E19CCD /* Recreational */,
+				189E85272D2BF9390049EE4B /* LandingViewModel.swift */,
+				18C76B4C2D2BD5A900E19CCD /* AdvancedViewModel.swift */,
+				18C76B532D2BD5A900E19CCD /* RecreationalViewModel.swift */,
 			);
 			path = ViewModels;
-			sourceTree = "<group>";
-		};
-		18C76B7C2D2BD5C600E19CCD /* Advanced */ = {
-			isa = PBXGroup;
-			children = (
-				18C76B792D2BD5C600E19CCD /* AdvancedMockData.swift */,
-				18C76B7A2D2BD5C600E19CCD /* AdvancedPlayersMockData.json */,
-			);
-			path = Advanced;
-			sourceTree = "<group>";
-		};
-		18C76B862D2BD5C600E19CCD /* Recreational */ = {
-			isa = PBXGroup;
-			children = (
-				18C76B832D2BD5C600E19CCD /* RecreationalMockData.swift */,
-				18C76B842D2BD5C600E19CCD /* RecreationalPlayersMockData.json */,
-			);
-			path = Recreational;
 			sourceTree = "<group>";
 		};
 		18C76B872D2BD5C600E19CCD /* MockData */ = {
 			isa = PBXGroup;
 			children = (
-				18C76B7C2D2BD5C600E19CCD /* Advanced */,
-				18C76B862D2BD5C600E19CCD /* Recreational */,
+				18C76B792D2BD5C600E19CCD /* AdvancedMockData.swift */,
+				18C76B7A2D2BD5C600E19CCD /* AdvancedPlayersMockData.json */,
+				18C76B832D2BD5C600E19CCD /* RecreationalMockData.swift */,
+				18C76B842D2BD5C600E19CCD /* RecreationalPlayersMockData.json */,
 			);
 			path = MockData;
 			sourceTree = "<group>";
@@ -386,7 +305,9 @@
 				18C76BD12D2BD6E500E19CCD /* APIRequestBuilder.swift */,
 				18C76BD22D2BD6E500E19CCD /* APIService.swift */,
 				18C76BD32D2BD6E500E19CCD /* JSONFetcher.swift */,
-				18C76BD42D2BD6E500E19CCD /* TestBaseURLProvider.swift */,
+				189E85322D2C08130049EE4B /* BaseURLProviderFactory.swift */,
+				189E852E2D2C06650049EE4B /* TestBaseURLProvider.swift */,
+				189E85302D2C066C0049EE4B /* ProdBaseURLProvider.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -534,9 +455,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				18C76B772D2BD5AA00E19CCD /* RecreationalViewModel.swift in Sources */,
+				189E85312D2C066C0049EE4B /* ProdBaseURLProvider.swift in Sources */,
 				18C76A792D2BD07C00E19CCD /* LoadingStates.swift in Sources */,
 				18C76B672D2BD5A900E19CCD /* LandingView.swift in Sources */,
 				18C76B612D2BD5A900E19CCD /* AdvancedView.swift in Sources */,
+				189E852F2D2C06650049EE4B /* TestBaseURLProvider.swift in Sources */,
 				18C76B6D2D2BD5AA00E19CCD /* RecreationalListView.swift in Sources */,
 				18C76B5F2D2BD5A900E19CCD /* AdvancedUsersListView.swift in Sources */,
 				18C76BDE2D2BD6E500E19CCD /* APIRequestBuilder.swift in Sources */,
@@ -545,15 +468,16 @@
 				18C76B882D2BD5C600E19CCD /* AdvancedMockData.swift in Sources */,
 				18C76BDC2D2BD6E500E19CCD /* JSONFetcherDelegate.swift in Sources */,
 				18C76A762D2BD07100E19CCD /* Utils.swift in Sources */,
+				189E85282D2BF9390049EE4B /* LandingViewModel.swift in Sources */,
 				18C76BDA2D2BD6E500E19CCD /* BaseURLProviderDelegate.swift in Sources */,
 				18C76BF12D2BDABB00E19CCD /* RecreationalPlayerModel.swift in Sources */,
 				18C76B6F2D2BD5AA00E19CCD /* RecreationalView.swift in Sources */,
 				18C76BEB2D2BDAA000E19CCD /* AdvancedPlayerModel.swift in Sources */,
+				189E85332D2C08130049EE4B /* BaseURLProviderFactory.swift in Sources */,
 				18C76B942D2BD5C600E19CCD /* RecreationalMockData.swift in Sources */,
 				18C76B712D2BD5AA00E19CCD /* AdvancedViewModel.swift in Sources */,
 				18C76BE82D2BD75A00E19CCD /* API_CallingApp.swift in Sources */,
 				18C76BE22D2BD6E500E19CCD /* JSONFetcher.swift in Sources */,
-				18C76BE42D2BD6E500E19CCD /* TestBaseURLProvider.swift in Sources */,
 				18C76BE02D2BD6E500E19CCD /* APIService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -567,11 +491,11 @@
 				18C76BDD2D2BD6E500E19CCD /* JSONFetcherDelegate.swift in Sources */,
 				18C76BDB2D2BD6E500E19CCD /* BaseURLProviderDelegate.swift in Sources */,
 				18B049A12D1D5F5500E62C39 /* RecreationalVMTests.swift in Sources */,
-				18C76BE52D2BD6E500E19CCD /* TestBaseURLProvider.swift in Sources */,
 				18C76A3E2D2685ED00E19CCD /* AdvancedVMTests.swift in Sources */,
 				18C76BE32D2BD6E500E19CCD /* JSONFetcher.swift in Sources */,
 				18C76B722D2BD5AA00E19CCD /* AdvancedViewModel.swift in Sources */,
 				18C76B892D2BD5C600E19CCD /* AdvancedMockData.swift in Sources */,
+				189E85292D2BFAA70049EE4B /* LandingViewModel.swift in Sources */,
 				18C76B702D2BD5AA00E19CCD /* RecreationalView.swift in Sources */,
 				18C76BE92D2BD75A00E19CCD /* API_CallingApp.swift in Sources */,
 				18C76A7A2D2BD07C00E19CCD /* LoadingStates.swift in Sources */,

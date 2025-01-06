@@ -17,7 +17,7 @@ class RecreationalVMTests: XCTestCase {
     override func setUp() {
         super.setUp()
         mockAPIService = APIService(urlSession: URLSession.shared)
-        recreationalViewModel = RecreationalViewModel(apiClient: mockAPIService, apiRequestBuilder: APIRequestBuilder(baseURL: TestBaseURLProvider().baseURL))
+        recreationalViewModel = RecreationalViewModel(apiClient: mockAPIService, apiRequestBuilder: APIRequestBuilder(baseURL: BaseURLProviderFactory.provider(for: .test).baseURL))
         cancellables = []
     }
     
