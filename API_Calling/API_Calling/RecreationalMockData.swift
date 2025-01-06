@@ -7,15 +7,19 @@
 
 import Foundation
 
-// Create a separate struct or class to handle mock data for testing
-struct RecreationalPlayersMockData {
-    static func getMockUsers() -> [RecreationalPlayersModel] {
-        return [
-            RecreationalPlayersModel(id: 1, name: "Amit", username: "amitUser", email: "amit@amit.com"),
-            RecreationalPlayersModel(id: 2, name: "Nikhil", username: "nikhilUser", email: "nikhil@nikhil.com"),
-            RecreationalPlayersModel(id: 3, name: "Jim", username: "jimUser", email: "jim@jim.com"),
-            RecreationalPlayersModel(id: 4, name: "Kim", username: "kimUser", email: "kim@kim.com"),
-            RecreationalPlayersModel(id: 5, name: "Reda", username: "redaUser", email: "reda@reda.com")
-        ]
+// Create a separate struct or class to handle mock data for testing coming from json
+struct RecreationalMockData {
+    static var mockUsers: [RecreationalPlayersModel] {
+        do {
+            return try JSONFetcher.fetchJson(from: "RecreationalPlayersMockData", as: [RecreationalPlayersModel].self)
+        } catch JSONFetchError.fileNotFound {
+            print("Error: The JSON file was not found.")
+        } catch JSONFetchError.decodingFailed {
+            print("Error: Failed to decode the JSON data.")
+        } catch {
+            print("An unexpected error occurred: \(error)")
+        }
+        return [] // Return an empty array in case of an error
     }
 }
+

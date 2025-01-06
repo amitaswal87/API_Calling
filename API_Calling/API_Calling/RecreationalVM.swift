@@ -8,16 +8,20 @@
 import Foundation
 import Combine
 
+enum LoadingState : Equatable {
+    case loading
+    case error(String)
+    case loaded
+    case none
+}
 
 class RecreationalVM : ObservableObject {
-    
+    @Published var state: LoadingState      = .none
     @Published var recreationalPlayers      : [RecreationalPlayersModel] = []
-    @Published var isLoading: Bool          = false // the API call is in progress or not
-    @Published var errorMessage: String?    = nil
 
     private var cancellables                = Set<AnyCancellable>()
     private let apiService                  : APIServiceDelegate
-    let requestBuilder              : APIRequestBuilderDelegate
+    let requestBuilder                      : APIRequestBuilderDelegate
 
     var method : HTTPMethod = .get
     
@@ -29,7 +33,7 @@ class RecreationalVM : ObservableObject {
     
     func fetchRecreationalPlayers(){
 
-        self.isLoading = true
+        self.state = .loading
         
         guard let urlRequest = self.requestBuilder
             .build() else{
@@ -38,13 +42,13 @@ class RecreationalVM : ObservableObject {
         
         apiService.fetch(request: urlRequest)
             .sink(receiveCompletion: { [weak self] completion   in
-                self?.isLoading = false
+                self?.state = .loaded
                 switch completion {
                 case .finished:
                     debugPrint("Successfully fetched recreational users.")
                 case .failure(let error):
                     debugPrint("Failed with error: \(error)")
-                    self?.errorMessage = error.localizedDescription
+                    self?.state = .error(error.localizedDescription)
                 }
             }, receiveValue: { [weak self] (recreationalPlayers: [RecreationalPlayersModel]) in
                 self?.recreationalPlayers = recreationalPlayers

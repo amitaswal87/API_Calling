@@ -70,11 +70,4 @@ class APIRequestBuilder: APIRequestBuilderDelegate {
         request.httpBody = body
         return request
     }
-    
-//    func buildRequest(path: String, method: HTTPMethod , baseUrl : URL) -> URLRequest? {
-//            guard let url = URL(string: path, relativeTo: baseUrl) else { return nil }
-//            var request = URLRequest(url: url)
-//            request.httpMethod = method.rawValue
-//            return request
-//        }
 }

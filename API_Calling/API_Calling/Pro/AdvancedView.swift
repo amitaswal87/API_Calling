@@ -8,31 +8,34 @@
 import SwiftUI
 
 struct AdvancedView: View {
-    @StateObject private var viewModel : AdvancedVM
+    @StateObject private var advancedViewModel : AdvancedVM
 
-    init(viewModel: AdvancedVM) {
-        _viewModel = StateObject(wrappedValue: viewModel)
+    init(advancedViewModel: AdvancedVM) {
+        _advancedViewModel = StateObject(wrappedValue: advancedViewModel)
     }
     var body: some View {
         VStack {
-            if viewModel.isLoading {
+            switch self.advancedViewModel.state {
+            case .loading:
                 ProgressView("Loading")
                     .padding()
-            } else if let errorMessage = viewModel.errorMessage {
-                Text(errorMessage)
+            case .error(let error):
+                Text(error)
                     .foregroundColor(.red)
                     .padding()
-            } else {
-                AdvancedUsersListView(users: viewModel.advancedPlayers)
+            case .loaded:
+                AdvancedUsersListView(users: self.advancedViewModel.advancedPlayers)
+            default:
+                EmptyView()
             }
         }
         .navigationTitle("Advanced View") 
         .onAppear {
-            viewModel.fetchAdvancedPlayers()
+            advancedViewModel.fetchAdvancedPlayers()
         }
     }
 }
 
 #Preview {
-    AdvancedView(viewModel: AdvancedVM(apiService: APIService(urlSession: URLSession.shared) ,  urlRequestBuilder: APIRequestBuilder(baseURL: TestBaseURLProvider().baseURL).setPath((APIEndpoints.fetchAdvancedPlayers.path))))
+    AdvancedView(advancedViewModel: AdvancedVM(apiService: APIService(urlSession: URLSession.shared) ,  urlRequestBuilder: APIRequestBuilder(baseURL: TestBaseURLProvider().baseURL).setPath((APIEndpoints.fetchAdvancedPlayers.path))))
 }

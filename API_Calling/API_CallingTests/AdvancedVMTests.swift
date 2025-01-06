@@ -32,16 +32,16 @@ class AdvancedVMTests: XCTestCase {
     // test innitial setup
     func testInitialState() {
         XCTAssertTrue(viewModel.advancedPlayers.isEmpty)
-        XCTAssertFalse(viewModel.isLoading)
-        XCTAssertNil(viewModel.errorMessage)
+        XCTAssertFalse(viewModel.state == .loading)
     }
     
     // test if data coming from server is correct
-    func testFetchRecreationalPlayersSuccess() {
+    func testFetchAdvancedPlayersSuccess() {
         // Mock response
-        let mockUsers = AdvancedPlayersMockData.getMockUsers()
+        let mockUsers = AdvancedMockData.mockUsers
+        
         _ = viewModel.urlRequestBuilder.setPath(APIEndpoints.fetchAdvancedPlayers.path)
-
+        
         let expectation = self.expectation(description: "Fetch users successfully")
         
         viewModel.$advancedPlayers
@@ -56,21 +56,23 @@ class AdvancedVMTests: XCTestCase {
         waitForExpectations(timeout: 3.0)
     }
     // test failure case
-    func testFetchRecreationalPlayersFailure(){
+    func testFetchAdvancedPlayersFailure(){
         
         let expectation = self.expectation(description: "Fetch users failure")
         
         _ = viewModel.urlRequestBuilder.setPath(APIEndpoints.custom("/custom").path)
-        viewModel.$errorMessage
+        viewModel.$state
             .dropFirst()
-            .sink { errorMessage in
-                XCTAssertEqual(errorMessage, "The data couldn’t be read because it isn’t in the correct format.")
-                expectation.fulfill()
+            .sink { state in
+                if case .error(let errorMessage) = state {
+                    XCTAssertEqual(errorMessage, "The data couldn’t be read because it isn’t in the correct format.")
+                    expectation.fulfill()
+                }
             }
             .store(in: &cancellables)
-
+        
         viewModel.fetchAdvancedPlayers()
-
+        
         waitForExpectations(timeout: 3.0)
     }
 }

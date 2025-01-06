@@ -1,0 +1,33 @@
+
+[
+  {
+    "id": 1,
+    "name": "Amit Pro",
+    "username": "amitProUser",
+    "phone": "123456789"
+  },
+  {
+    "id": 2,
+    "name": "Nikhil Pro",
+    "username": "nikhilProUser",
+    "phone": "234567891"
+  },
+  {
+    "id": 3,
+    "name": "Jim Pro",
+    "username": "jimProUser",
+    "phone": "345678912"
+  },
+  {
+    "id": 4,
+    "name": "Kim Pro",
+    "username": "kimProUser",
+    "phone": "456789123"
+  },
+  {
+    "id": 5,
+    "name": "Reda Pro",
+    "username": "redaProUser",
+    "phone": "567891234"
+  }
+]

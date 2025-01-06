@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct AdvancedUsersListView: View {
-    let users: [AdvancedUsers]
+    let users: [AdvancedPlayersModel]
 
     var body: some View {
         ScrollView {
@@ -33,5 +33,5 @@ struct AdvancedUsersListView: View {
 }
 
 #Preview {
-    AdvancedUsersListView(users: AdvancedPlayersMockData.getMockUsers())
+    AdvancedUsersListView(users: AdvancedMockData.mockUsers)
 }

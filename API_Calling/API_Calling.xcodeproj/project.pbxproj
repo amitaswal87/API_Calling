@@ -33,6 +33,11 @@
 		18C76A392D266BE800E19CCD /* AdvancedMockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C76A382D266BE800E19CCD /* AdvancedMockData.swift */; };
 		18C76A3C2D2672D300E19CCD /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C76A3B2D2672D300E19CCD /* Utils.swift */; };
 		18C76A3E2D2685ED00E19CCD /* AdvancedVMTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C76A3D2D2685ED00E19CCD /* AdvancedVMTests.swift */; };
+		18C76A452D2BA85D00E19CCD /* RecreationalPlayersMockData.json in Resources */ = {isa = PBXBuildFile; fileRef = 18C76A442D2BA85D00E19CCD /* RecreationalPlayersMockData.json */; };
+		18C76A472D2BAFD100E19CCD /* JSONFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C76A462D2BAFD100E19CCD /* JSONFetcher.swift */; };
+		18C76A492D2BB01500E19CCD /* JSONFetcherDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C76A482D2BB01500E19CCD /* JSONFetcherDelegate.swift */; };
+		18C76A4D2D2BB62100E19CCD /* AdvancedPlayersMockData.json in Resources */ = {isa = PBXBuildFile; fileRef = 18C76A4C2D2BB62100E19CCD /* AdvancedPlayersMockData.json */; };
+		18C76A4E2D2BB62100E19CCD /* AdvancedPlayersMockData.json in Resources */ = {isa = PBXBuildFile; fileRef = 18C76A4C2D2BB62100E19CCD /* AdvancedPlayersMockData.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +87,10 @@
 		18C76A382D266BE800E19CCD /* AdvancedMockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvancedMockData.swift; sourceTree = "<group>"; };
 		18C76A3B2D2672D300E19CCD /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		18C76A3D2D2685ED00E19CCD /* AdvancedVMTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvancedVMTests.swift; sourceTree = "<group>"; };
+		18C76A442D2BA85D00E19CCD /* RecreationalPlayersMockData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = RecreationalPlayersMockData.json; sourceTree = "<group>"; };
+		18C76A462D2BAFD100E19CCD /* JSONFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONFetcher.swift; sourceTree = "<group>"; };
+		18C76A482D2BB01500E19CCD /* JSONFetcherDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONFetcherDelegate.swift; sourceTree = "<group>"; };
+		18C76A4C2D2BB62100E19CCD /* AdvancedPlayersMockData.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = AdvancedPlayersMockData.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -189,6 +198,7 @@
 			children = (
 				18B049A22D1DA8ED00E62C39 /* RecreationalPlayersModel.swift */,
 				18B049C02D1DCC7500E62C39 /* RecreationalMockData.swift */,
+				18C76A442D2BA85D00E19CCD /* RecreationalPlayersMockData.json */,
 				18B049A42D1DAF3D00E62C39 /* RecreationalView.swift */,
 				18B049AA2D1DB46900E62C39 /* RecreationalVM.swift */,
 				18B049AC2D1DBECA00E62C39 /* RecreationalListView.swift */,
@@ -201,6 +211,7 @@
 			children = (
 				18B049962D1D3EA100E62C39 /* AdvancedPlayersModel.swift */,
 				18C76A382D266BE800E19CCD /* AdvancedMockData.swift */,
+				18C76A4C2D2BB62100E19CCD /* AdvancedPlayersMockData.json */,
 				18B049B62D1DC30E00E62C39 /* AdvancedView.swift */,
 				18B049B82D1DC32000E62C39 /* AdvancedUsersListView.swift */,
 				18B049BA2D1DC33F00E62C39 /* AdvancedVM.swift */,
@@ -220,6 +231,8 @@
 			isa = PBXGroup;
 			children = (
 				18C76A3B2D2672D300E19CCD /* Utils.swift */,
+				18C76A462D2BAFD100E19CCD /* JSONFetcher.swift */,
+				18C76A482D2BB01500E19CCD /* JSONFetcherDelegate.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -328,7 +341,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18C76A452D2BA85D00E19CCD /* RecreationalPlayersMockData.json in Resources */,
 				18B049742D1D3D1B00E62C39 /* Preview Assets.xcassets in Resources */,
+				18C76A4D2D2BB62100E19CCD /* AdvancedPlayersMockData.json in Resources */,
 				18B049712D1D3D1B00E62C39 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -337,6 +352,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18C76A4E2D2BB62100E19CCD /* AdvancedPlayersMockData.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -361,6 +377,7 @@
 				18B049A32D1DA8ED00E62C39 /* RecreationalPlayersModel.swift in Sources */,
 				18B049C32D1E9BB100E62C39 /* APIRequestBuilderDelegate.swift in Sources */,
 				18B049BF2D1DC65600E62C39 /* APIRequestBuilder.swift in Sources */,
+				18C76A472D2BAFD100E19CCD /* JSONFetcher.swift in Sources */,
 				18B049A52D1DAF3D00E62C39 /* RecreationalView.swift in Sources */,
 				18B049B92D1DC32000E62C39 /* AdvancedUsersListView.swift in Sources */,
 				18B049AB2D1DB46900E62C39 /* RecreationalVM.swift in Sources */,
@@ -373,6 +390,7 @@
 				18B0496D2D1D3D1A00E62C39 /* API_CallingApp.swift in Sources */,
 				18C76A3C2D2672D300E19CCD /* Utils.swift in Sources */,
 				18B049BD2D1DC60900E62C39 /* BaseURLProviderDelegate.swift in Sources */,
+				18C76A492D2BB01500E19CCD /* JSONFetcherDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

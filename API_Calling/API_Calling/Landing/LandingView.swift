@@ -11,7 +11,7 @@ import SwiftUI
 struct LandingView: View {
     
     var body: some View {
-        NavigationView {
+        NavigationView {            
             
             VStack {
                 // Header Text
@@ -22,6 +22,7 @@ struct LandingView: View {
                 Spacer()
                 // Buttons in the center
                 VStack(spacing: 20) {
+                    
                     
                     // create apiBuilder object
                     let apiBuilderRecreational = APIRequestBuilder(baseURL: TestBaseURLProvider().baseURL)
@@ -39,9 +40,9 @@ struct LandingView: View {
                     let apiBuilderAdvanced = APIRequestBuilder(baseURL: TestBaseURLProvider().baseURL)
                         .setPath(APIEndpoints.fetchAdvancedPlayers.path)
                     // create viewModel
-                    let advancedVm = AdvancedVM(apiService: APIService(urlSession: URLSession.shared) ,  urlRequestBuilder: apiBuilderAdvanced)
+                    let advancedViewModel = AdvancedVM(apiService: APIService(urlSession: URLSession.shared) ,  urlRequestBuilder: apiBuilderAdvanced)
                     // navigate to AdvancedView
-                    NavigationLink(destination: AdvancedView(viewModel: advancedVm)) {
+                    NavigationLink(destination: AdvancedView(advancedViewModel: advancedViewModel)) {
                         Text("Advanced Players")
                     }
                     .buttonStyle(PrimaryButtonStyle(backgroundColor: .black))

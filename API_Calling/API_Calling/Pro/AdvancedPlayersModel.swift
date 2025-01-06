@@ -8,7 +8,7 @@
 import Foundation
 
 // MARK: - Advanced User Model
-struct AdvancedUsers: Identifiable, Codable ,Equatable {
+struct AdvancedPlayersModel: Identifiable, Codable ,Equatable {
     let id: Int
     let name: String
     let username: String

@@ -9,10 +9,8 @@ import Foundation
 import Combine
 
 class AdvancedVM : ObservableObject {
-    
-    @Published var advancedPlayers          : [AdvancedUsers] = []
-    @Published var isLoading: Bool          = false // the API call is in progress or not
-    @Published var errorMessage: String?    = nil
+    @Published var state: LoadingState      = .none
+    @Published var advancedPlayers          : [AdvancedPlayersModel] = []
 
     private var cancellables                = Set<AnyCancellable>()
     private let apiService                  : APIServiceDelegate
@@ -26,7 +24,7 @@ class AdvancedVM : ObservableObject {
 
     func fetchAdvancedPlayers(){
         
-        self.isLoading = true
+        self.state = .loading
         
         guard let urlRequest = self.urlRequestBuilder
             .build() else{
@@ -35,17 +33,16 @@ class AdvancedVM : ObservableObject {
         
         apiService.fetch(request: urlRequest)
             .sink(receiveCompletion: { [weak self] completion   in
-                self?.isLoading = false
+                self?.state = .loaded
                 switch completion {
                 case .finished:
                     debugPrint("Successfully fetched recreational users.")
                 case .failure(let error):
                     debugPrint("Failed with error: \(error)")
-                    self?.errorMessage = error.localizedDescription
+                    self?.state = .error(error.localizedDescription)
                 }
-            }, receiveValue: { [weak self] (advancedPlayers: [AdvancedUsers]) in
+            }, receiveValue: { [weak self] (advancedPlayers: [AdvancedPlayersModel]) in
                 self?.advancedPlayers = advancedPlayers
-                print(AdvancedPlayersMockData.getMockUsers())
             }).store(in: &cancellables)
     }
     

@@ -18,15 +18,19 @@ struct RecreationalView: View {
     
        var body: some View {
            VStack {
-               if viewModel.isLoading {
+               
+               switch viewModel.state {
+               case .loading:
                    ProgressView("Loading")
                        .padding()
-               } else if let errorMessage = viewModel.errorMessage , errorMessage.count > 0 {
-                   Text(errorMessage)
+               case .error(let error):
+                   Text(error)
                        .foregroundColor(.red)
                        .padding()
-               } else {
+               case .loaded:
                    RecreationalListView(users: viewModel.recreationalPlayers)
+               default:
+                   EmptyView()
                }
            }
            .navigationTitle("Recreational View")

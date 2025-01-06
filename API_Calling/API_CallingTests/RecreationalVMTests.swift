@@ -14,14 +14,13 @@ class RecreationalVMTests: XCTestCase {
     private var viewModel: RecreationalVM!
     private var mockAPIService: APIService!
     private var cancellables: Set<AnyCancellable>!
-
     override func setUp() {
         super.setUp()
         mockAPIService = APIService(urlSession: URLSession.shared)
         viewModel = RecreationalVM(apiService: mockAPIService, requestBuilder: APIRequestBuilder(baseURL: TestBaseURLProvider().baseURL))
         cancellables = []
     }
-
+    
     override func tearDown() {
         viewModel = nil
         mockAPIService = nil
@@ -32,18 +31,17 @@ class RecreationalVMTests: XCTestCase {
     // test innitial setup
     func testInitialState() {
         XCTAssertTrue(viewModel.recreationalPlayers.isEmpty)
-        XCTAssertFalse(viewModel.isLoading)
-        XCTAssertNil(viewModel.errorMessage)
+        XCTAssertFalse(viewModel.state == .loading)
     }
-
+    
     // test if data coming from server is correct
     func testFetchRecreationalPlayersSuccess() {
         // Mock response
-        let mockUsers = RecreationalPlayersMockData.getMockUsers()
-
+        let mockUsers = RecreationalMockData.mockUsers
+        
         let expectation = self.expectation(description: "Fetch users successfully")
         _ = viewModel.requestBuilder.setPath(APIEndpoints.fetchRecreationalPlayers.path)
-
+        
         viewModel.$recreationalPlayers
             .dropFirst()
             .sink { users in
@@ -51,28 +49,30 @@ class RecreationalVMTests: XCTestCase {
                 expectation.fulfill()
             }
             .store(in: &cancellables)
-
+        
         viewModel.fetchRecreationalPlayers()
-
+        
         waitForExpectations(timeout: 3.0)
     }
-
+    
     // test failure case
     func testFetchRecreationalPlayersFailure() {
-
+        
         let expectation = self.expectation(description: "Fetch users failure")
         
         _ = viewModel.requestBuilder.setPath(APIEndpoints.custom("/custom").path)
-        viewModel.$errorMessage
+        viewModel.$state
             .dropFirst()
-            .sink { errorMessage in
-                XCTAssertEqual(errorMessage, "The data couldn’t be read because it isn’t in the correct format.")
-                expectation.fulfill()
+            .sink { state in
+                if case .error(let errorMessage) = state {
+                    XCTAssertEqual(errorMessage, "The data couldn’t be read because it isn’t in the correct format.")
+                    expectation.fulfill()
+                }
             }
             .store(in: &cancellables)
-
+        
         viewModel.fetchRecreationalPlayers()
-
+        
         waitForExpectations(timeout: 3.0)
     }
 }

@@ -32,6 +32,7 @@ struct RecreationalListView: View {
 }
 
 
+
 #Preview {
-    RecreationalListView(users: RecreationalPlayersMockData.getMockUsers())
+    RecreationalListView(users: RecreationalMockData.mockUsers)
 }
