@@ -8,5 +8,5 @@
 import Foundation
 
 protocol JSONFetcherDelegate{
-    static func fetchJson<T: Decodable>(from fileName: String, as type: T.Type) throws -> T
+    func fetchJson<T: Decodable>(from fileName: String, as type: T.Type) throws -> T
 }

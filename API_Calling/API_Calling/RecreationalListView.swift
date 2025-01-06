@@ -34,5 +34,5 @@ struct RecreationalListView: View {
 
 
 #Preview {
-    RecreationalListView(users: RecreationalMockData.mockUsers)
+    RecreationalListView(users: RecreationalMockData(jsonFetcher: JSONFetcher()).mockUsers)
 }

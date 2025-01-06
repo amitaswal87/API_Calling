@@ -33,5 +33,5 @@ struct AdvancedUsersListView: View {
 }
 
 #Preview {
-    AdvancedUsersListView(users: AdvancedMockData.mockUsers)
+    AdvancedUsersListView(users: AdvancedMockData(jsonFetcher: JSONFetcher()).mockUsers)
 }

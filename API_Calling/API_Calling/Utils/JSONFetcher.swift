@@ -13,7 +13,7 @@ enum JSONFetchError: Error {
 
 class JSONFetcher : JSONFetcherDelegate{
     /// Fetches JSON data from a file and decodes it into the specified model type.
-    static func fetchJson<T: Decodable>(from fileName: String, as type: T.Type) throws -> T {
+    func fetchJson<T: Decodable>(from fileName: String, as type: T.Type) throws -> T {
         guard let url = Bundle.main.url(forResource: fileName, withExtension: "json") else {
                print("File not found")
             throw JSONFetchError.fileNotFound

@@ -37,7 +37,7 @@ class RecreationalVMTests: XCTestCase {
     // test if data coming from server is correct
     func testFetchRecreationalPlayersSuccess() {
         // Mock response
-        let mockUsers = RecreationalMockData.mockUsers
+        let mockUsers = RecreationalMockData(jsonFetcher: JSONFetcher()).mockUsers
         
         let expectation = self.expectation(description: "Fetch users successfully")
         _ = viewModel.requestBuilder.setPath(APIEndpoints.fetchRecreationalPlayers.path)

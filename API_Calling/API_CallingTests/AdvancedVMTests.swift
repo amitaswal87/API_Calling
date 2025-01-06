@@ -38,7 +38,7 @@ class AdvancedVMTests: XCTestCase {
     // test if data coming from server is correct
     func testFetchAdvancedPlayersSuccess() {
         // Mock response
-        let mockUsers = AdvancedMockData.mockUsers
+        let mockUsers = AdvancedMockData(jsonFetcher: JSONFetcher()).mockUsers
         
         _ = viewModel.urlRequestBuilder.setPath(APIEndpoints.fetchAdvancedPlayers.path)
         
