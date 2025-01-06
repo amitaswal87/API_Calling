@@ -25,7 +25,7 @@ struct AdvancedView: View {
                     .padding()
             case .loaded:
                 AdvancedUsersListView(advancedPlayerList: self.advancedViewModel.advancedPlayerList)
-            default:
+            case .none:
                 EmptyView()
             }
         }

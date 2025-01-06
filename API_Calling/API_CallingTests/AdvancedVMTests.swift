@@ -10,22 +10,25 @@ import XCTest
 @testable import API_Calling
 import Combine
 
+
+
+
 class AdvancedVMTests: XCTestCase {
     private var advancedViewModel: AdvancedViewModel!
     private var apiService: APIService!
-    private var cancellables: Set<AnyCancellable>!
+    private var subscription: Set<AnyCancellable>!
     
     override func setUp() {
         super.setUp()
         apiService = APIService(urlSession: URLSession.shared)
         advancedViewModel = AdvancedViewModel(apiClient: APIService(urlSession: URLSession.shared) ,  apiRequestBuilder: APIRequestBuilder(baseURL: BaseURLProviderFactory.provider(for: .test).baseURL))
-        cancellables = []
+        subscription = []
     }
     
     override func tearDown() {
         advancedViewModel = nil
         apiService = nil
-        cancellables = nil
+        subscription = nil
         super.tearDown()
     }
     
@@ -49,7 +52,7 @@ class AdvancedVMTests: XCTestCase {
             .sink { users in
                 XCTAssertEqual(users, mockUserList)
                 expectation.fulfill()
-            }.store(in: &cancellables)
+            }.store(in: &subscription)
         
         advancedViewModel.fetchAdvancedPlayers()
         
@@ -69,10 +72,14 @@ class AdvancedVMTests: XCTestCase {
                     expectation.fulfill()
                 }
             }
-            .store(in: &cancellables)
+            .store(in: &subscription)
         
         advancedViewModel.fetchAdvancedPlayers()
         
         waitForExpectations(timeout: 3.0)
     }
+ 
+    
 }
+
+

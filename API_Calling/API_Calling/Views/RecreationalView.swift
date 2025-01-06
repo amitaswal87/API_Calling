@@ -29,7 +29,7 @@ struct RecreationalView: View {
                        .padding()
                case .loaded:
                    RecreationalListView(recreationalPlayerList: recreationalViewModel.recreationalPlayerList)
-               default:
+               case .none:
                    EmptyView()
                }
            }
