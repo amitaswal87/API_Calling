@@ -12,21 +12,21 @@ enum JSONFetchError: Error {
     case decodingFailed
 }
 
-class JSONFetcher : JSONFetcherDelegate{
+class JSONFetcher : JSONFetcherProtocol{
     //MARK:  Fetches JSON data
     func fetchJson<T: Decodable>(from fileName: String, as type: T.Type) throws -> T {
         guard let url = Bundle.main.url(forResource: fileName, withExtension: "json") else {
-               debugPrint("File not found")
+            debugPrint("File not found")
             throw JSONFetchError.fileNotFound
-           }
-           
-           do {
-               let data = try Data(contentsOf: url)
-               let decodedData = try JSONDecoder().decode(T.self, from: data)
-               return decodedData
-           } catch {
-               debugPrint("Error decoding JSON: \(error)")
-               throw JSONFetchError.decodingFailed
-           }
+        }
+        
+        do {
+            let data = try Data(contentsOf: url)
+            let decodedData = try JSONDecoder().decode(T.self, from: data)
+            return decodedData
+        } catch {
+            debugPrint("Error decoding JSON: \(error)")
+            throw JSONFetchError.decodingFailed
+        }
     }
 }

@@ -7,10 +7,17 @@
 
 import Foundation
 
+
 // MARK: - Advanced User Model
-struct AdvancedPlayerModel: Identifiable, Codable ,Equatable {
+struct AdvancedPlayerModel: Identifiable, Decodable ,Equatable {
     let id: Int
     let name: String
     let username: String
     let phone: String
+    let address: AddressWithState
+}
+// Define the Address model
+struct AddressWithState: Decodable ,Equatable {
+    let city: String
+    let state: String
 }

@@ -3,31 +3,50 @@
         "id": 1,
         "name": "Amit",
         "username": "amitUser",
-        "email": "amit@amit.com"
+        "email": "amit@amit.com",
+        "address": {
+            "city": "Frankfurt",
+            "country": "Germany"
+        }
     },
     {
         "id": 2,
         "name": "Nikhil",
         "username": "nikhilUser",
-        "email": "nikhil@nikhil.com"
+        "email": "nikhil@nikhil.com",
+        "address": {
+            "city": "Bruges",
+            "country": "Belgium"
+        }
     },
     {
         "id": 3,
         "name": "Jim",
         "username": "jimUser",
-        "email": "jim@jim.com"
+        "email": "jim@jim.com",
+        "address": {
+            "city": "Amsterdam",
+            "country": "Netherlands"
+        }
     },
     {
         "id": 4,
         "name": "Kim",
         "username": "kimUser",
-        "email": "kim@kim.com"
+        "email": "kim@kim.com",
+        "address": {
+            "city": "Grindelwald",
+            "country": "Switzerland"
+        }
     },
     {
         "id": 5,
         "name": "Reda",
         "username": "redaUser",
-        "email": "reda@reda.com"
+        "email": "reda@reda.com",
+        "address": {
+            "city": "Hallstatt",
+            "country": "Austria"
+        }
     }
 ]
-

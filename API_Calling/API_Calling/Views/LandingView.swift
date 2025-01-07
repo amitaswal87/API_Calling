@@ -12,6 +12,7 @@ struct LandingView: View {
     
     private var landingViewModel : LandingViewModel
     
+    //MARK: Initilizer
     init(landingViewModel: LandingViewModel) {
         self.landingViewModel = landingViewModel
     }
@@ -50,5 +51,5 @@ struct LandingView: View {
 }
 
 #Preview {
-    LandingView(landingViewModel: LandingViewModel(apiClient: APIService(urlSession: URLSession.shared)))
+    LandingView(landingViewModel: LandingViewModel(apiClient: APIService(urlSession: URLSessionAdapter(session: .shared))))
 }

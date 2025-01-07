@@ -9,13 +9,14 @@ import Foundation
 
 class LandingViewModel: ObservableObject {
     
-    private let apiClient       : APIServiceDelegate
+    private let apiClient       : APIServiceProtocol
     private let urlProvider     = BaseURLProviderFactory.provider(for: .test)
+    
     //MARK: Initializer
-    init(apiClient: APIServiceDelegate) {
+    init(apiClient: APIServiceProtocol) {
         self.apiClient = apiClient
     }
-
+    
     //MARK: create recreational viewModel
     func makeRecreationalViewModel() -> RecreationalViewModel {
         let apiRecreationalRequestBuilder = APIRequestBuilder(baseURL: urlProvider.baseURL)

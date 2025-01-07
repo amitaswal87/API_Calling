@@ -1,33 +1,52 @@
-
 [
-  {
-    "id": 1,
-    "name": "Amit Pro",
-    "username": "amitProUser",
-    "phone": "123456789"
-  },
-  {
-    "id": 2,
-    "name": "Nikhil Pro",
-    "username": "nikhilProUser",
-    "phone": "234567891"
-  },
-  {
-    "id": 3,
-    "name": "Jim Pro",
-    "username": "jimProUser",
-    "phone": "345678912"
-  },
-  {
-    "id": 4,
-    "name": "Kim Pro",
-    "username": "kimProUser",
-    "phone": "456789123"
-  },
-  {
-    "id": 5,
-    "name": "Reda Pro",
-    "username": "redaProUser",
-    "phone": "567891234"
-  }
+    {
+        "id": 1,
+        "name": "Amit Pro",
+        "username": "amitProUser",
+        "phone": "123456789",
+        "address": {
+            "city": "Mumbai",
+            "state": "Maharashtra"
+        }
+    },
+    {
+        "id": 2,
+        "name": "Nikhil Pro",
+        "username": "nikhilProUser",
+        "phone": "234567891",
+        "address": {
+            "city": "Jaipur",
+            "state": "Rajasthan"
+        }
+    },
+    {
+        "id": 3,
+        "name": "Jim Pro",
+        "username": "jimProUser",
+        "phone": "345678912",
+        "address": {
+            "city": "Spiti",
+            "state": "Himachal"
+        }
+    },
+    {
+        "id": 4,
+        "name": "Kim Pro",
+        "username": "kimProUser",
+        "phone": "456789123",
+        "address": {
+            "city": "Harshil",
+            "state": "Uttrakhand"
+        }
+    },
+    {
+        "id": 5,
+        "name": "Reda Pro",
+        "username": "redaProUser",
+        "phone": "567891234",
+        "address": {
+            "city": "Arambol",
+            "state": "Goa"
+        }
+    }
 ]

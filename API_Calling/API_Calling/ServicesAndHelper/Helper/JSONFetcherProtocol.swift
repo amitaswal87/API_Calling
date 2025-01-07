@@ -1,12 +1,12 @@
 //
-//  JSONFetcherDelegate.swift
+//  JSONFetcherProtocol.swift
 //  API_Calling
 //
-//  Created by apple  on 06/01/25.
+//  Created by apple  on 07/01/25.
 //
 
 import Foundation
 
-protocol JSONFetcherDelegate{
+protocol JSONFetcherProtocol{
     func fetchJson<T: Decodable>(from fileName: String, as type: T.Type) throws -> T
 }

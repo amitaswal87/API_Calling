@@ -14,7 +14,7 @@ struct PrimaryButtonStyle: ButtonStyle {
     var backgroundColor: Color
     var cornerRadius: CGFloat = 8
     var padding: CGFloat = 10
-
+    
     
     func makeBody(configuration: Configuration) -> some View {
         configuration.label

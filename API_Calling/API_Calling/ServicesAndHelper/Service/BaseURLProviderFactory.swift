@@ -10,7 +10,7 @@ import Foundation
 enum BaseUrl {
     case test
     case prod
-
+    
     var url: String {
         switch self {
         case .test:
@@ -24,7 +24,7 @@ enum BaseUrl {
 
 // Factory to get the appropriate provider
 struct BaseURLProviderFactory {
-    static func provider(for environment: BaseUrl) -> BaseURLProviderDelegate {
+    static func provider(for environment: BaseUrl) -> BaseURLProviderProtocol {
         switch environment {
         case .test:
             return TestBaseURLProvider()

@@ -15,16 +15,16 @@ class AdvancedViewModel : ObservableObject {
     @Published var advancedPlayerList               : [AdvancedPlayerModel] = []
     // Private variables used inside the class only
     private var subscriptions                       = Set<AnyCancellable>()
-    private let apiClient                           : APIServiceDelegate
+    private let apiClient                           : APIServiceProtocol
     // Pubic
-    let apiRequestBuilder                           : APIRequestBuilderDelegate
+    let apiRequestBuilder                           : APIRequestBuilderProtocol
     
     //MARK: Innitializer
-    init(apiClient: APIServiceDelegate , apiRequestBuilder : APIRequestBuilderDelegate) {
+    init(apiClient: APIServiceProtocol , apiRequestBuilder : APIRequestBuilderProtocol) {
         self.apiClient = apiClient
         self.apiRequestBuilder = apiRequestBuilder
     }
-
+    
     //MARK: fetching advanced players
     func fetchAdvancedPlayers(){
         

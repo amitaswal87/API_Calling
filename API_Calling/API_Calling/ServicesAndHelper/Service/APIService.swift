@@ -8,17 +8,16 @@
 import Foundation
 import Combine
 
-class APIService: APIServiceDelegate {
-    private let urlSession: URLSession
-
+class APIService: APIServiceProtocol {
+    private let urlSession: URLSessionProtocol
+    
     // url session
-    init(urlSession: URLSession) {
+    init(urlSession: URLSessionProtocol) {
         self.urlSession = urlSession
     }
-
+    
     // fetch api response
     func fetchData<T: Decodable>(request: URLRequest) -> AnyPublisher<T, Error> {
-
         return urlSession.dataTaskPublisher(for: request)
             .map(\.data)
             .decode(type: T.self, decoder: JSONDecoder())

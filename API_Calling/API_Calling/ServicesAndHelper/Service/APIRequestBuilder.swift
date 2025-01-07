@@ -31,7 +31,7 @@ enum APIEndpoints {
         }
     }
 }
-class APIRequestBuilder: APIRequestBuilderDelegate {
+class APIRequestBuilder: APIRequestBuilderProtocol {
     private var urlComponents       : URLComponents
     private var httpMethod          : HTTPMethod            = HTTPMethod.get
     private var headers             : [String: String]  = [:]
@@ -47,22 +47,22 @@ class APIRequestBuilder: APIRequestBuilderDelegate {
         self.urlComponents.path = path
         return self
     }
-
+    
     func setMethod(_ method: HTTPMethod) -> Self {
         self.httpMethod = method
         return self
     }
-
+    
     func addHeader(field: String, value: String) -> Self {
         self.headers[field] = value
         return self
     }
-
+    
     func setBody(_ body: Data?) -> Self {
         self.body = body
         return self
     }
-
+    
     //MARK: Build
     func build() -> URLRequest? {
         guard let url = urlComponents.url else { return nil }

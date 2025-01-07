@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct TestBaseURLProvider: BaseURLProviderDelegate {
+struct TestBaseURLProvider: BaseURLProviderProtocol {
     var baseURL: String {
         "https://e13a8e84-b781-4461-a633-8dd4b6494237.mock.pstmn.io"
     }

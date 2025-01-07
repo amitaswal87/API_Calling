@@ -9,24 +9,38 @@ import SwiftUI
 
 struct RecreationalListView: View {
     let recreationalPlayerList: [RecreationalPlayerModel]
-
+    
     var body: some View {
         ScrollView {
             LazyVStack(spacing: 10) {
                 ForEach(recreationalPlayerList) { player in
-                    VStack(alignment: .leading, spacing: 5) {
-                        Text(player.name)
-                            .font(.headline)
-                        Text(player.email)
-                            .font(.subheadline)
-                            .foregroundColor(.gray)
+                    HStack {
+                        VStack(alignment: .leading, spacing: 5) {
+                            Text(player.name)
+                                .font(.headline)
+                            Text(player.email)
+                                .font(.subheadline)
+                                .foregroundColor(.gray)
+                        }
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        
+                        Spacer()
+                        
+                        VStack(alignment: .trailing, spacing: 5) {
+                            Text(player.address.city)
+                                .font(.subheadline)
+                                .foregroundColor(.gray)
+                            Text(player.address.country)
+                                .font(.subheadline)
+                                .foregroundColor(.gray)
+                        }
+                        .frame(alignment: .trailing)
                     }
                     .padding()
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .background(Color.white)
                     .cornerRadius(8)
                     .shadow(radius: 2)
-                    
                 }
                 .padding(.horizontal)
             }
@@ -38,5 +52,5 @@ struct RecreationalListView: View {
 
 
 #Preview {
-    RecreationalListView(recreationalPlayerList: RecreationalMockData(jsonFetcher: JSONFetcher()).mockUserList)
+    RecreationalListView(recreationalPlayerList: RecreationalMockDataProvider(playerJsonFetcher: JSONFetcher()).mockUserList)
 }

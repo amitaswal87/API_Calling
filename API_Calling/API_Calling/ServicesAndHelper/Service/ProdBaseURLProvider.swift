@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct ProdBaseURLProvider: BaseURLProviderDelegate {
+struct ProdBaseURLProvider: BaseURLProviderProtocol {
     var baseURL: String {
         ""
     }

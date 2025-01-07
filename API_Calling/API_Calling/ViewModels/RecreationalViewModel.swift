@@ -15,12 +15,12 @@ class RecreationalViewModel : ObservableObject {
     @Published var recreationalPlayerList           : [RecreationalPlayerModel] = []
     // Private variables used inside the class only
     private var subscriptions                       = Set<AnyCancellable>()
-    private let apiClient                           : APIServiceDelegate
+    private let apiClient                           : APIServiceProtocol
     // public
-    let apiRequestBuilder                           : APIRequestBuilderDelegate
+    let apiRequestBuilder                           : APIRequestBuilderProtocol
     
     //MARK: innitializer
-    init(apiClient: APIServiceDelegate , apiRequestBuilder : APIRequestBuilderDelegate) {
+    init(apiClient: APIServiceProtocol , apiRequestBuilder : APIRequestBuilderProtocol) {
         self.apiClient = apiClient
         self.apiRequestBuilder = apiRequestBuilder
     }
